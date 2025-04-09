@@ -12,7 +12,7 @@ const experiences = [
 
 export const Experience = () => {
   return (
-    <section id="experience" className="py-10 bg-gray-900 text-white">
+    <section id="experiencia" className="py-10 bg-gray-900 text-white">
       <div className="container mx-auto px-5">
         {/* Título con ícono verde y línea debajo */}
         <div className="mb-8">
