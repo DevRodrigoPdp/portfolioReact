@@ -14,12 +14,12 @@ export const Navbar = () => {
 
   return (
     <header
-    className={`fixed top-4 z-30 px-4 py-2 transition-all duration-300 rounded-3xl shadow-md ${
-      scrolled
-        ? "bg-gray-800 bg-opacity-80 backdrop-blur-md"
-        : "bg-transparent"
-    } mx-auto`}
-  >
+      className={`fixed top-4 z-30 px-4 py-2 transition-all duration-300 rounded-3xl shadow-md ${
+        scrolled
+          ? "bg-gray-800 bg-opacity-80 backdrop-blur-md"
+          : "bg-transparent"
+      } mx-auto`}
+    >
       <div className="flex items-center gap-6 ">
         <a
           href="#about"
@@ -38,10 +38,14 @@ export const Navbar = () => {
           <a href="#skills" className="mr-5 hover:text-white">
             Habilidades
           </a>
-          <a href="#contacto" className="mr-5 hover:text-white">
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=rpuertadelpozo@gmail.com&su=Interesado%20en%20tu%20trabajo&body=Hola%20Rodrigo%2C%20me%20gustaría%20contactarte..."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mr-5 hover:text-white"
+          >
             Contacto
           </a>
-          
         </nav>
       </div>
     </header>

@@ -29,7 +29,9 @@ export const About = () => {
           <div className="flex content-left gap-4">
             {/* Botón de Contacto */}
             <a
-              href="#contact"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=rpuertadelpozo@gmail.com&su=Interesado%20en%20tu%20trabajo&body=Hola%20Rodrigo%2C%20me%20gustaría%20contactarte..."
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center px-6 py-3 bg-green-500 hover:bg-green-600 text-black rounded-lg transition-colors"
             >
               <img 
