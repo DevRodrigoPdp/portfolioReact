@@ -1,7 +1,7 @@
 import React from "react";
 import envelopeIcon from "../Icons/icons8-correo-24.png";
 import linkedinIcon from "../Icons/icon-linkedin.svg";
-import iconoCara from "../images/icono-cara.JPG";
+import iconoCara from "../images/icono-cara.png";
 
 export const About = () => {
   return (
