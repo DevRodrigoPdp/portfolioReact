@@ -8,6 +8,7 @@ export default defineConfig({
     tailwindcss(),
   ],
   base: '/portfolioReact/',
+  darkMode: 'class',
   build: {
     outDir: 'dist',
     emptyOutDir: true,
