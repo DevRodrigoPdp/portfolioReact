@@ -1,6 +1,6 @@
 import React from "react";
-import envelopeIcon from "../Icons/icons8-correo-24.png"; 
-import linkedinIcon from "../Icons/icon-linkedin.svg";     
+import envelopeIcon from "../Icons/icons8-correo-24.png";
+import linkedinIcon from "../Icons/icon-linkedin.svg";
 
 export const About = () => {
   return (
@@ -10,7 +10,7 @@ export const About = () => {
           <img
             className="w-full h-full object-cover"
             alt="Rodri"
-            src="../images/icono-cara.JPG"
+            src="../../public/images/icono-cara.JPG"
           />
         </div>
 
@@ -19,12 +19,12 @@ export const About = () => {
           <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Hola, soy Rodri
           </h1>
-          
+
           <p className="mb-8 text-lg leading-relaxed">
-            Desarrollador de Aplicaciones Multiplataforma (DAM), además a día de hoy 
-            estoy estudiando de forma autodidacta el desarrollo frontend.
+            Desarrollador de Aplicaciones Multiplataforma (DAM), además a día de
+            hoy estoy estudiando de forma autodidacta el desarrollo frontend.
           </p>
-          
+
           {/* Botones con iconos */}
           <div className="flex content-left gap-4">
             {/* Botón de Contacto */}
@@ -34,10 +34,10 @@ export const About = () => {
               rel="noopener noreferrer"
               className="flex items-center px-6 py-3 bg-green-500 hover:bg-green-600 text-black rounded-lg transition-colors"
             >
-              <img 
-                src={envelopeIcon} 
-                alt="Icono de correo" 
-                className="w-5 h-5 mr-2" 
+              <img
+                src={envelopeIcon}
+                alt="Icono de correo"
+                className="w-5 h-5 mr-2"
               />
               Contáctame
             </a>
@@ -46,13 +46,13 @@ export const About = () => {
             <a
               href="https://linkedin.com/in/tuperfil"
               target="_blank"
-              alt = "Icono Linkedin"
+              alt="Icono Linkedin"
               className="flex items-center px-6 py-3 bg-green-500 hover:bg-green-600 text-black rounded-lg transition-colors"
             >
-              <img 
-                src={linkedinIcon} 
-                alt="Icono de LinkedIn" 
-                className="w-5 h-5 mr-2" 
+              <img
+                src={linkedinIcon}
+                alt="Icono de LinkedIn"
+                className="w-5 h-5 mr-2"
               />
               LinkedIn
             </a>
