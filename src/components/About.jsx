@@ -45,7 +45,7 @@ export const About = () => {
 
             {/* Botón de LinkedIn */}
             <a
-              href="https://linkedin.com/in/tuperfil"
+              href="https://www.linkedin.com/in/rodrigo-puerta-del-pozo-b382142b0/"
               target="_blank"
               alt="Icono Linkedin"
               className="flex items-center px-6 py-3 bg-green-500 hover:bg-green-600 text-black rounded-lg transition-colors"
