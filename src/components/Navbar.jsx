@@ -14,13 +14,13 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-4 z-30 px-3 py-2 transition-all duration-300 rounded-3xl shadow-md ${
+      className={`fixed top-4 z-30  py-2 transition-all duration-300 rounded-3xl shadow-md max-w-[70rem] ${
         scrolled
           ? "bg-gray-800 bg-opacity-80 backdrop-blur-md"
           : "bg-transparent"
-      } w-full max-w-screen-lg mx-auto`}
+      } mx-auto left-2.5 right-2.5`}
     >
-      <div className="flex items-center justify-center gap-4 sm:gap-6 w-full max-w-screen-md mx-auto">
+      <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-6 items-center justify-center w-full max-w-screen-md mx-auto px-3">
         <a
           href="#about"
           className="title-font font-medium text-white text-base sm:text-xl"
