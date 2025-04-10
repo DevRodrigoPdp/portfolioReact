@@ -12,6 +12,8 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+
+
   return (
     <header
       className={`fixed top-4 z-30 px-4 py-2 transition-all duration-300 rounded-3xl shadow-md ${
