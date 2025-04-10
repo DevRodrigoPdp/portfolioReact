@@ -10,7 +10,7 @@ export const About = () => {
           <img
             className="w-full h-full object-cover"
             alt="Rodri"
-            src="https://i.pinimg.com/736x/d4/da/21/d4da218e178a7218ccb9acbb31cb1168.jpg"
+            src="../images/icono-cara.JPG"
           />
         </div>
 
