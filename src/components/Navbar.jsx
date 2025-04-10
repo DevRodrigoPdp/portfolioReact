@@ -12,22 +12,23 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
-
   return (
     <header
-      className={`fixed top-4 z-30 px-4 py-2 transition-all duration-300 rounded-3xl shadow-md ${
+      className={`fixed top-4 z-30 px-3 py-2 transition-all duration-300 rounded-3xl shadow-md ${
         scrolled
           ? "bg-gray-800 bg-opacity-80 backdrop-blur-md"
           : "bg-transparent"
       } w-full max-w-screen-lg mx-auto`}
     >
-      <div className="flex items-center justify-center gap-6 w-full max-w-screen-md mx-auto">
-        <a href="#about" className="title-font font-medium text-white text-xl">
+      <div className="flex items-center justify-center gap-4 sm:gap-6 w-full max-w-screen-md mx-auto">
+        <a
+          href="#about"
+          className="title-font font-medium text-white text-base sm:text-xl"
+        >
           Rodrigo Puerta
         </a>
 
-        <nav className="flex flex-wrap items-center text-base justify-center gap-5">
+        <nav className="flex flex-wrap items-center text-sm sm:text-base justify-center gap-3 sm:gap-5">
           <a href="#experiencia" className="hover:text-white">
             Experiencia
           </a>
