@@ -21,7 +21,7 @@ export const About = () => {
           </h1>
           
           <p className="mb-8 text-lg leading-relaxed">
-            Desarrollador de Aplicaciones Multiplataforma (DAM), pero a día de hoy 
+            Desarrollador de Aplicaciones Multiplataforma (DAM), además a día de hoy 
             estoy estudiando de forma autodidacta el desarrollo frontend.
           </p>
           
