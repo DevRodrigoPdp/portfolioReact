@@ -7,13 +7,4 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/portfolioReact/',
-  darkMode: 'class',
-  build: {
-    outDir: 'dist',
-    emptyOutDir: true,
-    rollupOptions: {
-      input: 'index.html' // Ruta exacta a tu archivo HTML
-    }
-  }
 });
