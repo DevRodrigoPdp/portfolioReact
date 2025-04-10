@@ -1,6 +1,7 @@
 import React from "react";
 import envelopeIcon from "../Icons/icons8-correo-24.png";
 import linkedinIcon from "../Icons/icon-linkedin.svg";
+import iconoCara from "../images/icono-cara.JPG";
 
 export const About = () => {
   return (
@@ -10,7 +11,7 @@ export const About = () => {
           <img
             className="w-full h-full object-cover"
             alt="Rodri"
-            src="../../public/images/icono-cara.JPG"
+            src={iconoCara}
           />
         </div>
 
