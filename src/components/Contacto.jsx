@@ -2,7 +2,7 @@ import React from "react";
 import { Mail, Github, Linkedin } from "lucide-react";
 
 const ContactCard = ({ icon, title, subtitle, href }) => (
-  <div className="bg-[#111111] rounded-xl p-6 border border-[#292929] hover:border-[#00ffae] transition-all duration-300">
+  <div className="bg-[#1c1c1c] rounded-xl p-6 border border-[#292929] hover:border-[#00ffae] transition-all duration-300">
     <div className="flex flex-col items-start text-left gap-3">
       <div className="bg-[#00ffae]/10 rounded-full p-3">{icon}</div>
       <h3 className="text-lg font-semibold text-white">{title}</h3>
