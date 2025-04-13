@@ -29,8 +29,7 @@ export const Contacto = () => {
           <h2 className="text-2xl sm:text-3xl font-bold">Contacto</h2>
           <div className="h-1 w-16 bg-gradient-to-r from-[#00ffae] to-[#63e] mt-1.5" />
           <p className="mt-6 text-gray-400 mb-6">
-            Estoy buscando nuevas oportunidades en desarrollo frontend y full stack.Tanto si tienes una
-            pregunta o simplemente quieras saludar, ¡te responderé!
+            Estoy buscando nuevas oportunidades en desarrollo frontend y full stack.
           </p>
         </div>
 
