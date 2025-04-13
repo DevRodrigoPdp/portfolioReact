@@ -21,7 +21,7 @@ const ContactCard = ({ icon, title, subtitle, href }) => (
 
 export const Contacto = () => {
   return (
-    <section id="contacto" className="min-h-[calc(100vh-100px)] py-20 pb-32">
+    <section id="contacto" className="py-20 pb-32">
       <div className="container mx-auto px-4">
         {/* Título */}
         <div>
