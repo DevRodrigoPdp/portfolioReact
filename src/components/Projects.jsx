@@ -9,7 +9,6 @@ export const Projects = () => {
         {/* Título */}
         <div className="w-full mb-10">
           <div className="flex items-center gap-4 mb-3">
-            <CodeIcon className="w-7 h-7 text-[#00ffae]" />
             <h1 className="text-3xl font-bold text-white">Proyectos</h1>
           </div>
           <div className="h-[4px] w-16 bg-gradient-to-r from-[#00ffae] to-[#63e]" />
@@ -20,12 +19,19 @@ export const Projects = () => {
           {projects.map((project, index) => (
             <div key={index} className="flex flex-col lg:flex-row gap-10">
               {/* Imagen */}
-              <div className="w-full lg:w-2/5">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-60 object-cover rounded-md shadow-lg"
-                />
+              <div className="w-full lg:w-2/5 group overflow-hidden rounded-md shadow-lg">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </a>
               </div>
 
               {/* Contenido */}
@@ -49,7 +55,11 @@ export const Projects = () => {
                       key={idx}
                       className="flex items-center gap-1 text-xs text-gray-300"
                     >
-                      <img src={tech.icon} alt={tech.name} className="w-4 h-4" />
+                      <img
+                        src={tech.icon}
+                        alt={tech.name}
+                        className="w-4 h-4"
+                      />
                       <span>{tech.name}</span>
                     </div>
                   ))}

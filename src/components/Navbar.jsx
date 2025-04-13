@@ -4,7 +4,7 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
-  const sections = ["about", "experiencia", "formacion", "projects", "skills"];
+  const sections = ["about", "experiencia", "formacion", "projects", "skills","contacto"];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +37,7 @@ export const Navbar = () => {
   const linkClass = (id) =>
     `transition-colors duration-300 ${
       activeSection === id
-        ? "text-[#F5F5F5]"
+        ? "text-[#00ffae]"
         : "text-[#A3A3A3] hover:text-white"
     }`;
 
@@ -50,7 +50,7 @@ export const Navbar = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a
           href="#about"
-          className="title-font font-medium text-white text-base sm:text-xl"
+          className="title-font font-medium text-[#00ffae] text-base sm:text-xl"
         >
           Rodrigo Puerta
         </a>
@@ -69,10 +69,7 @@ export const Navbar = () => {
             Habilidades
           </a>
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=rpuertadelpozo@gmail.com&su=Interesado%20en%20tu%20trabajo&body=Hola%20Rodrigo%2C%20me%20gustaría%20contactarte..."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#A3A3A3] hover:text-white"
+            href="#contacto" className={linkClass("contacto")}
           >
             Contacto
           </a>
