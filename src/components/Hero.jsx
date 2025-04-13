@@ -28,8 +28,9 @@ export const Hero = () => {
           </h1>
 
           <h2 className="font-medium text-gray-300">
-            Desarrollador de Aplicaciones, actualmente estudiando desarrollo frontend.
-            Me encanta crear experiencias digitales limpias, rápidas y funcionales.
+            Desarrollador de Aplicaciones, actualmente estudiando desarrollo
+            frontend. Me encanta crear experiencias digitales limpias, rápidas y
+            funcionales.
           </h2>
 
           <div className="flex justify-center gap-3 flex-wrap">
@@ -74,6 +75,23 @@ export const Hero = () => {
                 </svg>
               </button>
             </a>
+          </div>
+          <div className="flex justify-center items-center animate-bounce mt-40">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-move-down-icon lucide-move-down"
+            >
+              <path d="M8 18L12 22L16 18" />
+              <path d="M12 2V22" />
+            </svg>
           </div>
         </div>
       </div>
