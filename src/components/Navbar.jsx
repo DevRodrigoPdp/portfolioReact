@@ -56,7 +56,7 @@ export const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a
-          href="#about"
+          href="#hero"
           className="title-font font-medium text-[#00ffae] text-base sm:text-xl"
         >
           Rodrigo Puerta
