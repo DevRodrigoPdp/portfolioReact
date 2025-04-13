@@ -2,7 +2,7 @@ import React from "react";
 
 export const Hero = () => {
   return (
-    <section className="flex items-center justify-center min-h-screen pt-32 sm:pt-40">
+    <section id="hero" className="flex items-center justify-center min-h-screen pt-32 sm:pt-40">
       <div className="container mx-auto px-4 text-center">
         <div className="space-y-6">
           <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-[#00ffae] bg-[#00ffae]/10 text-[#00ffae] text-sm font-medium">
