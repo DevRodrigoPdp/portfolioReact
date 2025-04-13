@@ -29,7 +29,7 @@ const skillsByCategory = {
 
 export const Skills = () => {
   return (
-    <section id="skills" className="py-16 bg-gray-900 text-white">
+    <section id="skills" className="py-16 text-white scroll-mt-2">
       <div className="container mx-auto px-4">
         <div className="w-full mb-12">
           <div className="flex items-center gap-4 mb-2">

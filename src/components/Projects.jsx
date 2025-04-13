@@ -4,7 +4,7 @@ import { projects } from "../data/data";
 
 export const Projects = () => {
   return (
-    <section id="projects" className="text-gray-400 bg-gray-900 body-font">
+    <section id="projects" className="text-gray-400 body-font scroll-mt-32">
       <div className="container px-5 py-10 mx-auto">
         {/* Encabezado */}
         <div className="w-full mb-8">
