@@ -76,7 +76,7 @@ export const Hero = () => {
               </button>
             </a>
           </div>
-          <div className="flex justify-center items-center animate-bounce mt-40">
+          <div className="flex justify-center items-center animate-bounce mt-30">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
