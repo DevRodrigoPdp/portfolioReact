@@ -22,7 +22,10 @@ export const Projects = () => {
               Proyecto en curso
             </p>
             <p className="text-sm text-gray-300">
-              Actualmente estoy trabajando en un nuevo proyecto. ¡Pronto estará disponible!
+              Actualmente estoy desarrollando una landing page para un proyecto
+              sobre <strong>Baby Sign</strong>, un método de comunicación
+              gestual para bebés. Es un proyecto que combina diseño accesible
+              con tecnología moderna, ¡muy pronto disponible!
             </p>
           </div>
         </div>
