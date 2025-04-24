@@ -21,7 +21,7 @@ const education = [
     description:
       "Formación autodidacta centrada en tecnologías web modernas y buenas prácticas de UI/UX.",
     highlights: [
-      "React, Tailwind CSS, shadcn/ui, diseño responsivo.",
+      "React, Tailwind CSS, shadcn/ui.",
       "Consumo de APIs, routing, y gestión de estado.",
       "Enfoque en la accesibilidad y experiencia de usuario.",
     ],
