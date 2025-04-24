@@ -14,6 +14,19 @@ export const Projects = () => {
           <div className="h-[4px] w-16 bg-gradient-to-r from-[#00ffae] to-[#63e]" />
         </div>
 
+        {/* Proyecto en curso */}
+        <div className="mb-12 p-4 border border-[#00ffae] bg-[#1a1a1a] rounded-lg shadow-md flex items-center gap-4">
+          <CodeIcon className="w-6 h-6 text-[#00ffae] animate-pulse" />
+          <div>
+            <p className="text-sm text-[#00ffae] font-semibold uppercase tracking-wide">
+              Proyecto en curso
+            </p>
+            <p className="text-sm text-gray-300">
+              Actualmente estoy trabajando en un nuevo proyecto. ¡Pronto estará disponible!
+            </p>
+          </div>
+        </div>
+
         {/* Proyectos */}
         <div className="space-y-20">
           {projects.map((project, index) => (
