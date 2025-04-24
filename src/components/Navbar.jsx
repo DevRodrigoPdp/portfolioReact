@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para controlar si el menú está abierto o cerrado
 
   const sections = ["about", "experiencia", "formacion", "projects", "skills", "contacto"];
 
@@ -50,9 +51,9 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-4 z-30 py-2 transition-all duration-300 rounded-3xl
-        ${scrolled ? "backdrop-blur-md bg-transparent" : "bg-transparent"}
-        mx-auto left-2.5 right-2.5`}
+      className={`fixed top-4 z-30 py-2 transition-all duration-300 rounded-3xl ${
+        scrolled ? "backdrop-blur-md bg-transparent" : "bg-transparent"
+      } mx-auto left-2.5 right-2.5`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a
@@ -62,7 +63,35 @@ export const Navbar = () => {
           Rodrigo Puerta
         </a>
 
-        <nav className="flex flex-wrap items-center text-sm sm:text-base justify-center gap-3 sm:gap-5">
+        {/* Menú de hamburguesa en móviles */}
+        <div className="lg:hidden">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-[#00ffae] focus:outline-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="w-8 h-8"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+
+        {/* Menú en desktop */}
+        <nav
+          className={`${
+            isMenuOpen ? "block" : "hidden"
+          } lg:flex flex-wrap items-center text-sm sm:text-base justify-center gap-3 sm:gap-5`}
+        >
           <a href="#experiencia" className={linkClass("experiencia")}>
             Experiencia
           </a>
