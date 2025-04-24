@@ -5,7 +5,7 @@ export const Hero = () => {
     <section id="hero" className="flex items-center justify-center min-h-screen pt-32 sm:pt-40">
       <div className="container mx-auto px-4 text-center">
         <div className="space-y-6">
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-[#00ffae] bg-[#00ffae]/10 text-[#00ffae] text-sm font-medium">
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-[#00ffae] bg-[#00ffae]/10 text-[#00ffae] text-sm font-medium animate__animated animate__fadeInUp animate__delay-0.5s">
             Desarrollador de Apps
             <svg
               className="w-3 h-3 mx-1"
@@ -23,19 +23,19 @@ export const Hero = () => {
             Desarrollador Full Stack
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white animate__animated animate__fadeIn animate__delay-0.5s">
             Hola, soy <span className="text-[#00ffae]">Rodrigo</span>
           </h1>
 
-          <h2 className="font-medium text-gray-300">
+          <h2 className="font-medium text-gray-300 animate__animated animate__fadeIn animate__delay-1s">
             Desarrollador de Aplicaciones, actualmente estudiando desarrollo
             frontend. Me encanta crear experiencias digitales limpias, rápidas y
             funcionales.
           </h2>
 
-          <div className="flex justify-center gap-3 flex-wrap">
+          <div className="flex justify-center gap-3 flex-wrap animate__animated animate__fadeIn animate__delay-1.5s">
             <a href="#projects">
-              <button className="animated-button">
+              <button className="animated-button transition-all transform hover:scale-110">
                 <svg
                   viewBox="0 0 24 24"
                   className="arr-2"
@@ -56,7 +56,7 @@ export const Hero = () => {
             </a>
 
             <a href="#contacto">
-              <button className="animated-button">
+              <button className="animated-button transition-all transform hover:scale-110">
                 <svg
                   viewBox="0 0 24 24"
                   className="arr-2"
@@ -76,7 +76,8 @@ export const Hero = () => {
               </button>
             </a>
           </div>
-          <div className="flex justify-center items-center animate-bounce mt-30">
+
+          <div className="flex justify-center items-center animate__animated animate__pulse animate__infinite mt-12">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
