@@ -3,12 +3,18 @@ import React, { useEffect, useState } from "react";
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para controlar si el menú está abierto o cerrado
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const sections = ["about", "experiencia", "formacion", "projects", "skills", "contacto"];
+  const sections = [
+    "about",
+    "experiencia",
+    "formacion",
+    "projects",
+    "skills",
+    "contacto",
+  ];
 
   useEffect(() => {
-    // Cambia el fondo al hacer scroll
     const handleScroll = () => {
       setScrolled(window.scrollY > 5);
     };
@@ -16,7 +22,6 @@ export const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     handleScroll();
 
-    // Intersection Observer para detectar la sección activa
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -55,58 +60,77 @@ export const Navbar = () => {
         scrolled ? "backdrop-blur-md bg-transparent" : "bg-transparent"
       } mx-auto left-2.5 right-2.5`}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <a
-          href="#hero"
-          className="title-font font-medium text-[#00ffae] text-base sm:text-xl"
-        >
-          Rodrigo Puerta
-        </a>
-
-        {/* Menú de hamburguesa en móviles */}
-        <div className="lg:hidden">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-[#00ffae] focus:outline-none"
+      <div className="container mx-auto px-4 flex flex-col lg:flex-row justify-between items-center">
+        <div className="flex justify-between items-center w-full lg:w-auto">
+          <a
+            href="#hero"
+            className="title-font font-medium text-[#00ffae] text-base sm:text-xl"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-8 h-8"
+            Rodrigo Puerta
+          </a>
+
+          {/* Botón hamburguesa */}
+          <div className="lg:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-[#00ffae] focus:outline-none"
+              aria-label="Toggle menu"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
+              {isMenuOpen ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-8 h-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-8 h-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
 
-        {/* Menú en desktop */}
+        {/* Menú de navegación */}
         <nav
-          className={`${
-            isMenuOpen ? "block" : "hidden"
-          } lg:flex flex-wrap items-center text-sm sm:text-base justify-center gap-3 sm:gap-5`}
+          className={`
+            flex-col transition-[max-height] duration-500 ease-in-out w-full overflow-hidden
+            ${isMenuOpen ? "max-h-96 mt-4" : "max-h-0"}
+            lg:mt-0 lg:max-h-none lg:flex-row lg:flex lg:w-auto
+            flex items-center justify-center
+            space-y-3 lg:space-y-0 lg:gap-x-5
+          `}
         >
-          <a href="#experiencia" className={linkClass("experiencia")}>
-            Experiencia
-          </a>
-          <a href="#formacion" className={linkClass("formacion")}>
-            Formación
-          </a>
-          <a href="#projects" className={linkClass("projects")}>
-            Proyectos
-          </a>
-          <a href="#skills" className={linkClass("skills")}>
-            Habilidades
-          </a>
-          <a href="#contacto" className={linkClass("contacto")}>
-            Contacto
-          </a>
+          {sections.slice(1).map((id) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              className={linkClass(id)}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {id.charAt(0).toUpperCase() + id.slice(1)}
+            </a>
+          ))}
         </nav>
       </div>
     </header>
