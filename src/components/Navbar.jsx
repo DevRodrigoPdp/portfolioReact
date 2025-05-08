@@ -10,7 +10,7 @@ export const Navbar = () => {
     "experiencia",
     "formacion",
     "proyectos",
-    "skills",
+    "tecnologías",
     "contacto",
   ];
 
