@@ -3,7 +3,7 @@ import React from "react";
 const education = [
   {
     title: "Técnico Superior en Desarrollo de Aplicaciones Web",
-    center: "IES Francisco de Goya,Madrid · España",
+    center: "IES Francisco de Goya, Madrid · España",
     period: "2025 - Actualidad",
     description:
       "Formación profesional en desarrollo web full-stack, enfocada en aplicaciones modernas y escalables.",
@@ -29,7 +29,7 @@ const education = [
   },
   {
     title: "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma",
-    center: "IES Tetuan de las Victorias,Madrid · España",
+    center: "IES Tetuan de las Victorias, Madrid · España",
     period: "2021 - 2023",
     description:
       "Formación profesional enfocada en programación, bases de datos, interfaces y desarrollo multiplataforma.",
@@ -38,7 +38,7 @@ const education = [
       "Desarrollo de apps para Android y escritorio.",
       "Prácticas profesionales orientadas al mundo real.",
     ],
-    tech: ["Java", "SQL", "Android Studio", "UML"],
+    tech: ["Java", "SQL", "Android Studio"],
   }
 ];
 
