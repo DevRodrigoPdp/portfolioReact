@@ -2,17 +2,17 @@ import React from "react";
 
 const education = [
   {
-    title: "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma",
-    center: "IES Tetuan de las Victorias,Madrid · España",
-    period: "2021 - 2023",
+    title: "Técnico Superior en Desarrollo de Aplicaciones Web",
+    center: "IES Francisco de Goya,Madrid · España",
+    period: "2025 - Actualidad",
     description:
-      "Formación profesional enfocada en programación, bases de datos, interfaces y desarrollo multiplataforma.",
+      "Formación profesional en desarrollo web full-stack, enfocada en aplicaciones modernas y escalables.",
     highlights: [
-      "Programación en Java, diseño de bases de datos y gestión de proyectos.",
-      "Desarrollo de apps para Android y escritorio.",
-      "Prácticas profesionales orientadas al mundo real.",
+      "Desarrollo backend con frameworks web profesionales.",
+      "Bases de datos relacionales y no relacionales.",
+      "Despliegue y gestión de aplicaciones web.",
     ],
-    tech: ["Java", "SQL", "Android Studio", "UML"],
+    tech: ["PHP", "JavaScript", "MySQL", "PostgreSQL", "Apache"],
   },
   {
     title: "Desarrollo Frontend (Autodidacta)",
@@ -28,18 +28,18 @@ const education = [
     tech: ["React", "Tailwind", "JavaScript", "Git", "Figma"],
   },
   {
-    title: "Técnico Superior en Desarrollo de Aplicaciones Web",
-    center: "IES Francisco de Goya,Madrid · España",
-    period: "2025 - Actualidad",
+    title: "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma",
+    center: "IES Tetuan de las Victorias,Madrid · España",
+    period: "2021 - 2023",
     description:
-      "Formación profesional en desarrollo web full-stack, enfocada en aplicaciones modernas y escalables.",
+      "Formación profesional enfocada en programación, bases de datos, interfaces y desarrollo multiplataforma.",
     highlights: [
-      "Desarrollo backend con frameworks web profesionales.",
-      "Bases de datos relacionales y no relacionales.",
-      "Despliegue y gestión de aplicaciones web.",
+      "Programación en Java, diseño de bases de datos y gestión de proyectos.",
+      "Desarrollo de apps para Android y escritorio.",
+      "Prácticas profesionales orientadas al mundo real.",
     ],
-    tech: ["PHP", "JavaScript", "MySQL", "PostgreSQL", "Apache"],
-  },
+    tech: ["Java", "SQL", "Android Studio", "UML"],
+  }
 ];
 
 export const Education = () => {
