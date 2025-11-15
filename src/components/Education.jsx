@@ -3,7 +3,7 @@ import React from "react";
 const education = [
   {
     title: "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma",
-    center: "CFGS · España",
+    center: "IES Tetuan de las Victorias,Madrid · España",
     period: "2021 - 2023",
     description:
       "Formación profesional enfocada en programación, bases de datos, interfaces y desarrollo multiplataforma.",
@@ -27,6 +27,19 @@ const education = [
     ],
     tech: ["React", "Tailwind", "JavaScript", "Git", "Figma"],
   },
+  {
+    title: "Técnico Superior en Desarrollo de Aplicaciones Web",
+    center: "IES Francisco de Goya,Madrid · España",
+    period: "2025 - Actualidad",
+    description:
+      "Formación profesional en desarrollo web full-stack, enfocada en aplicaciones modernas y escalables.",
+    highlights: [
+      "Desarrollo backend con frameworks web profesionales.",
+      "Bases de datos relacionales y no relacionales.",
+      "Despliegue y gestión de aplicaciones web.",
+    ],
+    tech: ["PHP", "JavaScript", "MySQL", "PostgreSQL", "Apache"],
+  },
 ];
 
 export const Education = () => {
@@ -41,7 +54,7 @@ export const Education = () => {
           <div className="h-[4px] w-16 bg-gradient-to-r from-[#00ffae] to-[#63e]" />
         </div>
 
-        {/* Bloques de formación */}
+        
         <div className="space-y-16">
           {education.map((edu, index) => (
             <div key={index} className="flex flex-col gap-4">
