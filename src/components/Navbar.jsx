@@ -9,7 +9,7 @@ export const Navbar = () => {
     "about",
     "experiencia",
     "formacion",
-    "proyectos",
+    "projects",
     "skills",
     "contacto",
   ];
