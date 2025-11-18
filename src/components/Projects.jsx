@@ -1,7 +1,7 @@
 import { CodeIcon } from "@heroicons/react/solid";
 import React from "react";
 import { projects } from "../data/data";
-import { GithubActivity } from "./GithubActivity"; 
+
 
 export const Projects = () => {
   return (
@@ -111,7 +111,7 @@ export const Projects = () => {
         </div>
 
         
-        <GithubActivity />
+      
 
       </div>
     </section>
