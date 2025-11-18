@@ -21,7 +21,7 @@ export const GithubActivity = () => {
       <h2 className="text-3xl font-bold text-white mb-3">Actividad en GitHub</h2>
       <div className="h-[4px] w-20 bg-gradient-to-r from-[#00ffae] to-[#63e] mb-10" />
 
-      
+      {/* GRID DE CONTRIBUCIONES */}
       <div className="overflow-x-auto">
         <div className="flex gap-1">
           {data.contributions.map((week, i) => (
