@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 export const GithubActivity = () => {
-  const username = "TU_USUARIO"; // <-- CAMBIA ESTO
+  const username = "DevRodrigoPdp"; // <-- CAMBIA ESTO
 
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
