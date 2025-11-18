@@ -1,11 +1,13 @@
 import { CodeIcon } from "@heroicons/react/solid";
 import React from "react";
 import { projects } from "../data/data";
+import { GithubActivity } from "./GithubActivity"; 
 
 export const Projects = () => {
   return (
     <section id="projects" className="text-[#D4D4D4] py-16">
       <div className="container mx-auto px-5">
+        
         {/* Título */}
         <div className="w-full mb-10">
           <div className="flex items-center gap-4 mb-3">
@@ -34,6 +36,7 @@ export const Projects = () => {
         <div className="space-y-20">
           {projects.map((project, index) => (
             <div key={index} className="flex flex-col lg:flex-row gap-10">
+
               {/* Imagen */}
               <div className="w-full lg:w-2/5 group overflow-hidden rounded-md shadow-lg">
                 <a
@@ -71,11 +74,7 @@ export const Projects = () => {
                       key={idx}
                       className="flex items-center gap-1 text-xs text-gray-300"
                     >
-                      <img
-                        src={tech.icon}
-                        alt={tech.name}
-                        className="w-4 h-4"
-                      />
+                      <img src={tech.icon} alt={tech.name} className="w-4 h-4" />
                       <span>{tech.name}</span>
                     </div>
                   ))}
@@ -105,38 +104,15 @@ export const Projects = () => {
                     </svg>
                   </a>
                 </div>
+
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-24">
-          <h2 className="text-3xl font-bold text-white mb-3">
-            Actividad en GitHub
-          </h2>
-          <div className="h-[4px] w-16 bg-gradient-to-r from-[#00ffae] to-[#63e] mb-10" />
+        
+        <GithubActivity />
 
-          {/* Contribution Graph */}
-          <div className="flex justify-center mb-10">
-            <img
-              src="https://ghchart.rshah.org/00ffae/DevRodrigoPdp"
-              alt="GitHub contribution chart"
-              className="w-full max-w-4xl rounded-lg"
-            />
-          </div>
-
-          {/* Stats cards */}
-          <div className="flex flex-col md:flex-row justify-center items-center gap-6">
-            <img
-              src="https://github-readme-stats.vercel.app/api?username=TU_USUARIO&show_icons=true&theme=tokyonight&hide_border=true"
-              className="rounded-lg"
-            />
-            <img
-              src="https://github-readme-stats.vercel.app/api/top-langs/?username=TU_USUARIO&layout=compact&theme=tokyonight&hide_border=true"
-              className="rounded-lg"
-            />
-          </div>
-        </div>
       </div>
     </section>
   );
