@@ -109,6 +109,34 @@ export const Projects = () => {
             </div>
           ))}
         </div>
+
+        <div className="mt-24">
+          <h2 className="text-3xl font-bold text-white mb-3">
+            Actividad en GitHub
+          </h2>
+          <div className="h-[4px] w-16 bg-gradient-to-r from-[#00ffae] to-[#63e] mb-10" />
+
+          {/* Contribution Graph */}
+          <div className="flex justify-center mb-10">
+            <img
+              src="https://ghchart.rshah.org/00ffae/DevRodrigoPdp"
+              alt="GitHub contribution chart"
+              className="w-full max-w-4xl rounded-lg"
+            />
+          </div>
+
+          {/* Stats cards */}
+          <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+            <img
+              src="https://github-readme-stats.vercel.app/api?username=TU_USUARIO&show_icons=true&theme=tokyonight&hide_border=true"
+              className="rounded-lg"
+            />
+            <img
+              src="https://github-readme-stats.vercel.app/api/top-langs/?username=TU_USUARIO&layout=compact&theme=tokyonight&hide_border=true"
+              className="rounded-lg"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
