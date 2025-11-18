@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 export const GithubActivity = () => {
-  const username = "DevRodrigoPdp"; // <-- CAMBIA ESTO
+  const username = "DevRodrigoPdp"; 
 
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -10,7 +10,7 @@ export const GithubActivity = () => {
     const fetchStats = async () => {
       try {
         const res = await fetch(
-          `https://api.github.com/users/${DevRodrigoPdp}`
+          `https://api.github.com/users/${username}`
         );
         const data = await res.json();
         setStats(data);
