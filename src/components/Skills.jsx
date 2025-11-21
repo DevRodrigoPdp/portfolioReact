@@ -4,7 +4,7 @@ import {
   FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt
 } from 'react-icons/fa';
 import {
-  SiNextdotjs, SiTailwindcss, SiBootstrap, SiTypescript, SiVite
+  SiNextdotjs, SiTailwindcss, SiBootstrap, SiVite
 } from 'react-icons/si';
 
 const skills = [

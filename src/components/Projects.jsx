@@ -2,10 +2,15 @@ import { CodeIcon } from "@heroicons/react/solid";
 import React from "react";
 import { projects } from "../data/data";
 
+
 export const Projects = () => {
   return (
     <section id="projects" className="text-[#D4D4D4] py-16">
       <div className="container mx-auto px-5">
+<<<<<<< HEAD
+=======
+        
+>>>>>>> f3fc8db55080b5efbb069aca0b71aea07dccf413
         {/* Título */}
         <div className="w-full mb-10">
           <div className="flex items-center gap-4 mb-3">
@@ -34,6 +39,10 @@ export const Projects = () => {
         <div className="space-y-20">
           {projects.map((project, index) => (
             <div key={index} className="flex flex-col lg:flex-row gap-10">
+<<<<<<< HEAD
+=======
+
+>>>>>>> f3fc8db55080b5efbb069aca0b71aea07dccf413
               {/* Imagen */}
               <div className="w-full lg:w-2/5 group overflow-hidden rounded-md shadow-lg">
                 <a
@@ -71,11 +80,15 @@ export const Projects = () => {
                       key={idx}
                       className="flex items-center gap-1 text-xs text-gray-300"
                     >
+<<<<<<< HEAD
                       <img
                         src={tech.icon}
                         alt={tech.name}
                         className="w-4 h-4"
                       />
+=======
+                      <img src={tech.icon} alt={tech.name} className="w-4 h-4" />
+>>>>>>> f3fc8db55080b5efbb069aca0b71aea07dccf413
                       <span>{tech.name}</span>
                     </div>
                   ))}
@@ -105,10 +118,18 @@ export const Projects = () => {
                     </svg>
                   </a>
                 </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> f3fc8db55080b5efbb069aca0b71aea07dccf413
               </div>
             </div>
           ))}
         </div>
+
+        
+      
+
       </div>
     </section>
   );
