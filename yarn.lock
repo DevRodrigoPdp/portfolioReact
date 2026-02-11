@@ -908,6 +908,15 @@ flatted@^3.2.9:
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.3.3.tgz"
   integrity sha512-GX+ysw4PBCz0PzosHDepZGANEuFCMLrnRTiEy9McGjmkCQYwRq4A/X786G/fjM/+OjsWSU1ZrY5qyARZmO/uwg==
 
+<<<<<<< HEAD
+framer-motion@^12.6.5:
+  version "12.6.5"
+  resolved "https://registry.npmjs.org/framer-motion/-/framer-motion-12.6.5.tgz"
+  integrity sha512-MKvnWov0paNjvRJuIy6x418w23tFqRfS6CXHhZrCiSEpXVlo/F+usr8v4/3G6O0u7CpsaO1qop+v4Ip7PRCBqQ==
+  dependencies:
+    motion-dom "^12.6.5"
+    motion-utils "^12.6.5"
+=======
 framer-motion@^12.23.24:
   version "12.23.24"
   resolved "https://registry.npmjs.org/framer-motion/-/framer-motion-12.23.24.tgz"
@@ -915,6 +924,7 @@ framer-motion@^12.23.24:
   dependencies:
     motion-dom "^12.23.23"
     motion-utils "^12.23.6"
+>>>>>>> f3fc8db55080b5efbb069aca0b71aea07dccf413
     tslib "^2.4.0"
 
 fs-extra@^11.1.1:
@@ -1203,6 +1213,19 @@ minimatch@^3.1.2:
   dependencies:
     brace-expansion "^1.1.7"
 
+<<<<<<< HEAD
+motion-dom@^12.6.5:
+  version "12.6.5"
+  resolved "https://registry.npmjs.org/motion-dom/-/motion-dom-12.6.5.tgz"
+  integrity sha512-jpM9TQLXzYMWMJ7Ec7sAj0iis8oIuu6WvjI3yNKJLdrZyrsI/b2cRInDVL8dCl683zQQq19DpL9cSMP+k8T1NA==
+  dependencies:
+    motion-utils "^12.6.5"
+
+motion-utils@^12.6.5:
+  version "12.6.5"
+  resolved "https://registry.npmjs.org/motion-utils/-/motion-utils-12.6.5.tgz"
+  integrity sha512-IsOeKsOF+FWBhxQEDFBO6ZYC8/jlidmVbbLpe9/lXSA9j9kzGIMUuIBx2SZY+0reAS0DjZZ1i7dJp4NHrjocPw==
+=======
 motion-dom@^12.23.23:
   version "12.23.23"
   resolved "https://registry.npmjs.org/motion-dom/-/motion-dom-12.23.23.tgz"
@@ -1214,6 +1237,7 @@ motion-utils@^12.23.6:
   version "12.23.6"
   resolved "https://registry.npmjs.org/motion-utils/-/motion-utils-12.23.6.tgz"
   integrity sha512-eAWoPgr4eFEOFfg2WjIsMoqJTW6Z8MTUCgn/GZ3VRpClWBdnbjryiA3ZSNLyxCTmCQx4RmYX6jX1iWHbenUPNQ==
+>>>>>>> f3fc8db55080b5efbb069aca0b71aea07dccf413
 
 ms@^2.1.3:
   version "2.1.3"
@@ -1560,9 +1584,15 @@ uri-js@^4.2.2:
     punycode "^2.1.0"
 
 "vite@^4.2.0 || ^5.0.0 || ^6.0.0", "vite@^5.2.0 || ^6", vite@^6.2.0:
+<<<<<<< HEAD
+  version "6.2.6"
+  resolved "https://registry.npmjs.org/vite/-/vite-6.2.6.tgz"
+  integrity sha512-9xpjNl3kR4rVDZgPNdTL0/c6ao4km69a/2ihNQbcANz8RuCOK3hQBmLSJf3bRKVQjVMda+YvizNE8AwvogcPbw==
+=======
   version "6.4.1"
   resolved "https://registry.npmjs.org/vite/-/vite-6.4.1.tgz"
   integrity sha512-+Oxm7q9hDoLMyJOYfUYBuHQo+dkAloi33apOPP56pzj+vsdJDzr+j1NISE5pyaAuKL4A3UD34qd0lx5+kfKp2g==
+>>>>>>> f3fc8db55080b5efbb069aca0b71aea07dccf413
   dependencies:
     esbuild "^0.25.0"
     fdir "^6.4.4"
