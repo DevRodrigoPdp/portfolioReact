@@ -1,83 +1,140 @@
-import React from "react";
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+
+const tags = ['React', 'Next.js', 'Tailwind', 'Framer Motion', 'TypeScript', 'JavaScript'];
 
 export const Hero = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
+  const yTitle = useSpring(useTransform(scrollYProgress, [0, 1], [0, -80]), { stiffness: 80, damping: 20 });
+  const yDesc  = useSpring(useTransform(scrollYProgress, [0, 1], [0, -40]), { stiffness: 80, damping: 20 });
+  const opacity = useTransform(scrollYProgress, [0.4, 0.9], [1, 0]);
+
   return (
-    <section id="hero" className="flex items-center justify-center min-h-screen pt-32 sm:pt-40">
-      <div className="container mx-auto px-4 text-center">
-        <div className="space-y-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white animate__animated animate__fadeIn animate__delay-0.5s">
-            Hola, soy <span className="text-[#00ffae]">Rodrigo</span>
-          </h1>
+    <section id="hero" ref={ref} className="relative flex flex-col justify-center min-h-screen px-10 md:px-16 overflow-hidden">
 
-          <h2 className="font-medium text-gray-300 animate__animated animate__fadeIn animate__delay-1s">
-            Desarrollador de Aplicaciones, actualmente estudiando desarrollo
-            frontend. Me encanta crear experiencias digitales limpias, rápidas y
-            funcionales.
-          </h2>
+      {/* Decorative large background letter */}
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.04 }}
+        transition={{ delay: 0.5, duration: 1 }}
+        className="absolute right-0 top-1/2 -translate-y-1/2 text-[30vw] font-black leading-none text-gray-900 select-none pointer-events-none"
+        aria-hidden
+      >
+        R
+      </motion.span>
 
-          <div className="flex justify-center gap-3 flex-wrap animate__animated animate__fadeIn animate__delay-1.5s">
-            <a href="#projects">
-              <button className="animated-button transition-all transform hover:scale-110">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="arr-2"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-                </svg>
-                <span className="text">Ver mi trabajo</span>
-                <span className="circle"></span>
-                <svg
-                  viewBox="0 0 24 24"
-                  className="arr-1"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-                </svg>
-              </button>
-            </a>
+      {/* Top status row */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className="flex items-center gap-3 mb-12"
+      >
+        <span className="w-2 h-2 rounded-full bg-lime-500 animate-pulse" />
+        <span className="text-[10px] tracking-[0.3em] uppercase text-black/35">Disponible para proyectos</span>
+        <span className="w-px h-3 bg-black/15" />
+        <span className="text-[10px] tracking-[0.3em] uppercase text-black/25">Madrid · 2025</span>
+      </motion.div>
 
-            <a href="#contacto">
-              <button className="animated-button transition-all transform hover:scale-110">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="arr-2"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-                </svg>
-                <span className="text">Contactar</span>
-                <span className="circle"></span>
-                <svg
-                  viewBox="0 0 24 24"
-                  className="arr-1"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-                </svg>
-              </button>
-            </a>
-          </div>
-
-          <div className="flex justify-center items-center animate__animated animate__pulse animate__infinite mt-12">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="40"
-              height="40"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-move-down-icon lucide-move-down"
-            >
-              <path d="M8 18L12 22L16 18" />
-              <path d="M12 2V22" />
-            </svg>
-          </div>
+      {/* Giant name — two speeds */}
+      <motion.div style={{ y: yTitle, opacity }}>
+        <div className="overflow-hidden">
+          <motion.h1
+            className="parallax-title text-gray-900 block"
+            initial={{ y: '110%' }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+          >
+            Rodrigo
+          </motion.h1>
         </div>
-      </div>
+        <div className="overflow-hidden">
+          <motion.h1
+            className="parallax-title block"
+            style={{ color: 'rgba(0,0,0,0.2)' }}
+            initial={{ y: '110%' }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.18 }}
+          >
+            Puerta
+          </motion.h1>
+        </div>
+      </motion.div>
+
+      {/* Divider line */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ delay: 0.9, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        className="h-px bg-black/10 my-10 origin-left"
+      />
+
+      {/* Bottom row */}
+      <motion.div style={{ y: yDesc, opacity }} className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.8 }}
+        >
+          <p className="text-sm md:text-base max-w-sm leading-relaxed text-black/45 mb-6">
+            Desarrollador Frontend especializado en interfaces limpias, rápidas y experiencias digitales de alto impacto.
+          </p>
+          {/* Skill tags */}
+          <div className="flex flex-wrap gap-2">
+            {tags.map((tag, i) => (
+              <motion.span
+                key={tag}
+                initial={{ opacity: 0, scale: 0.85 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1 + i * 0.07, duration: 0.4 }}
+                className="text-[10px] tracking-[0.1em] uppercase px-3 py-1 rounded-full border border-black/10 text-black/35 bg-white"
+              >
+                {tag}
+              </motion.span>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="flex flex-col items-start md:items-end gap-3"
+        >
+          <a
+            href="#projects"
+            data-hover
+            onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
+            className="group flex items-center gap-3 text-sm font-medium tracking-wide border border-black/20 px-7 py-3.5 rounded-full hover:border-lime-600 hover:text-lime-700 text-black/55 transition-all duration-300 bg-white"
+          >
+            Ver proyectos
+            <motion.span animate={{ x: [0, 4, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>→</motion.span>
+          </a>
+          <a
+            href="#contact"
+            data-hover
+            onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
+            className="text-xs tracking-[0.15em] uppercase text-black/30 hover:text-black/60 transition-colors"
+          >
+            Contactar ↓
+          </a>
+        </motion.div>
+      </motion.div>
+
+      {/* Subtle scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-10 right-12 flex flex-col items-center gap-2"
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+          style={{ width: 1, height: 50, background: 'rgba(0,0,0,0.15)' }}
+        />
+      </motion.div>
     </section>
   );
 };

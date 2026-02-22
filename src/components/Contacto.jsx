@@ -1,59 +1,81 @@
-import React from "react";
-import { Mail, Github, Linkedin } from "lucide-react";
+import React, { useRef } from 'react';
+import { motion, useSpring, useMotionValue } from 'framer-motion';
 
-const ContactCard = ({ icon, title, subtitle, href }) => (
-  <div className="bg-[#1c1c1c] rounded-xl p-6 border border-[#292929] hover:border-[#00ffae] transition-all duration-300">
-    <div className="flex flex-col items-start text-left gap-3">
-      <div className="bg-[#00ffae]/10 rounded-full p-3">{icon}</div>
-      <h3 className="text-lg font-semibold text-white">{title}</h3>
-      {subtitle && <p className="text-sm text-gray-400">{subtitle}</p>}
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-sm text-[#00ffae] font-medium flex items-center gap-1 hover:underline mt-2"
-      >
-        Conectar <span>↗</span>
-      </a>
-    </div>
-  </div>
-);
+const MagLink = ({ href, children }) => {
+  const ref = useRef(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const sx = useSpring(x, { stiffness: 180, damping: 16 });
+  const sy = useSpring(y, { stiffness: 180, damping: 16 });
 
-export const Contacto = () => {
   return (
-    <section id="contacto" className="py-20 pb-32">
+    <motion.a
+      ref={ref}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ x: sx, y: sy }}
+      onMouseMove={(e) => {
+        const rect = ref.current.getBoundingClientRect();
+        x.set((e.clientX - rect.left - rect.width / 2) * 0.3);
+        y.set((e.clientY - rect.top - rect.height / 2) * 0.3);
+      }}
+      onMouseLeave={() => { x.set(0); y.set(0); }}
+      className="inline-block text-xs tracking-[0.2em] uppercase py-3 px-6 rounded-full transition-all duration-300 border border-black/15 text-black/40 hover:border-lime-600 hover:text-lime-700"
+      data-hover
+    >
+      {children}
+    </motion.a>
+  );
+};
 
-      <div className="container mx-auto px-4">
-        {/* Título */}
-        <div>
-          <h2 className="text-2xl sm:text-3xl font-bold">Contacto</h2>
-          <div className="h-1 w-16 bg-gradient-to-r from-[#00ffae] to-[#63e] mt-1.5" />
-          <p className="mt-6 text-gray-400 mb-6">
-            Estoy buscando nuevas oportunidades en desarrollo frontend y full stack.
-          </p>
-        </div>
+export const Contact = () => {
+  return (
+    <section id="contact" className="px-10 md:px-16 py-16 border-t" style={{ borderColor: 'rgba(0,0,0,0.07)' }}>
+      <motion.span
+        initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+        className="text-[10px] tracking-[0.3em] uppercase block mb-12 text-black/30"
+      >
+        Contacto
+      </motion.span>
 
-        {/* Tarjetas */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <ContactCard
-            icon={<Mail className="text-[#00ffae] w-8 h-8" />}
-            title="Email"
-            subtitle="rpuertadelpozo@gmail.com"
-            href="mailto:rpuertadelpozo@gmail.com"
-          />
-          <ContactCard
-            icon={<Github className="text-[#00ffae] w-8 h-8" />}
-            title="GitHub"
-            subtitle="DevRodrigoPdp"
-            href="https://github.com/DevRodrigoPdp"
-          />
-          <ContactCard
-            icon={<Linkedin className="text-[#00ffae] w-8 h-8" />}
-            title="LinkedIn"
-            subtitle="Rodrigo Puerta del Pozo"
-            href="https://www.linkedin.com/in/rodrigo-puerta-del-pozo-b382142b0/"
-          />
-        </div>
+      <div className="overflow-hidden mb-4">
+        <motion.h2
+          initial={{ y: '100%' }} whileInView={{ y: 0 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="text-[clamp(2.5rem,8vw,7rem)] font-black uppercase tracking-tight leading-none text-gray-900"
+        >
+          Trabajemos
+        </motion.h2>
+      </div>
+      <div className="overflow-hidden mb-14">
+        <motion.h2
+          initial={{ y: '100%' }} whileInView={{ y: 0 }}
+          transition={{ duration: 0.9, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+          className="text-[clamp(2.5rem,8vw,7rem)] font-black uppercase tracking-tight leading-none text-black/12"
+        >
+          juntos.
+        </motion.h2>
+      </div>
+
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="max-w-xs text-sm leading-relaxed text-black/40"
+        >
+          Abierto a nuevas oportunidades, proyectos freelance y colaboraciones creativas.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-wrap gap-3"
+        >
+          <MagLink href="mailto:rpuertadelpozo@gmail.com">Email ↗</MagLink>
+          <MagLink href="https://github.com/DevRodrigoPdp">GitHub ↗</MagLink>
+          <MagLink href="https://www.linkedin.com/in/rodrigo-puerta-del-pozo-b382142b0/">LinkedIn ↗</MagLink>
+        </motion.div>
       </div>
     </section>
   );

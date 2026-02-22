@@ -1,93 +1,84 @@
-import React from "react";
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 const education = [
   {
-    title: "Técnico Superior en Desarrollo de Aplicaciones Web",
-    center: "IES Francisco de Goya, Madrid · España",
-    period: "2025 - Actualidad",
-    description:
-      "Formación profesional en desarrollo web full-stack, enfocada en aplicaciones modernas y escalables.",
-    highlights: [
-      "Desarrollo backend con frameworks web profesionales.",
-      "Bases de datos relacionales y no relacionales.",
-      "Despliegue y gestión de aplicaciones web.",
-    ],
-    tech: ["PHP", "JavaScript", "MySQL", "PostgreSQL", "Apache"],
+    title: 'Técnico Superior en Desarrollo de Aplicaciones Web (DAW)',
+    center: 'IES Francisco de Goya',
+    location: 'Madrid, España',
+    period: '2025 – Actualidad',
+    description: 'Formación en desarrollo web full-stack: aplicaciones modernas, bases de datos y despliegue.',
+    tech: ['PHP', 'JavaScript', 'MySQL', 'PostgreSQL', 'Apache'],
   },
   {
-    title: "Desarrollo Frontend (Autodidacta)",
-    center: "Estudio Personal",
-    period: "2024 - Actualidad",
-    description:
-      "Formación autodidacta centrada en tecnologías web modernas y buenas prácticas de UI/UX.",
-    highlights: [
-      "React, Tailwind CSS, shadcn/ui.",
-      "Consumo de APIs, routing, y gestión de estado.",
-      "Enfoque en la accesibilidad y experiencia de usuario.",
-    ],
-    tech: ["React", "Tailwind", "JavaScript", "Git", "Figma"],
+    title: 'Desarrollo Frontend (Autodidacta)',
+    center: 'Estudio Personal',
+    location: '',
+    period: '2024 – Actualidad',
+    description: 'React, Tailwind CSS, Next.js, consumo de APIs, routing, gestión de estado y buenas prácticas UI/UX.',
+    tech: ['React', 'Tailwind', 'Next.js', 'Git', 'Figma'],
   },
   {
-    title: "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma",
-    center: "IES Tetuan de las Victorias, Madrid · España",
-    period: "2021 - 2023",
-    description:
-      "Formación profesional enfocada en programación, bases de datos, interfaces y desarrollo multiplataforma.",
-    highlights: [
-      "Programación en Java, diseño de bases de datos y gestión de proyectos.",
-      "Desarrollo de apps para Android y escritorio.",
-      "Prácticas profesionales orientadas al mundo real.",
-    ],
-    tech: ["Java", "SQL", "Android Studio"],
-  }
+    title: 'Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)',
+    center: 'IES Tetuan de las Victorias',
+    location: 'Madrid, España',
+    period: '2021 – 2023',
+    description: 'Programación, bases de datos, interfaces y apps Android y escritorio.',
+    tech: ['Java', 'SQL', 'Android Studio'],
+  },
 ];
 
-export const Education = () => {
+const EduItem = ({ item, index }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: '-10%' });
+  const fromLeft = index % 2 === 0;
+
   return (
-    <section id="formacion" className="py-16 text-[#D4D4D4] scroll-mt-32">
-      <div className="container mx-auto px-4">
-        {/* Título */}
-        <div className="mb-10">
-          <div className="flex items-center gap-3 mb-2">
-            <h2 className="text-3xl font-bold text-white">Formación</h2>
-          </div>
-          <div className="h-[4px] w-16 bg-gradient-to-r from-[#00ffae] to-[#63e]" />
-        </div>
-
-        
-        <div className="space-y-16">
-          {education.map((edu, index) => (
-            <div key={index} className="flex flex-col gap-4">
-              <div>
-                <h3 className="text-xl font-semibold text-[#00ffae]">
-                  {edu.title}
-                </h3>
-                <p className="text-sm text-[#A3A3A3]">
-                  {edu.center} · {edu.period}
-                </p>
-              </div>
-
-              <p className="text-sm text-[#CFCFCF] leading-relaxed">{edu.description}</p>
-
-              <ul className="list-disc list-inside text-[#A3A3A3] space-y-1">
-                {edu.highlights.map((point, idx) => (
-                  <li key={idx}>{point}</li>
-                ))}
-              </ul>
-
-              <div className="flex flex-wrap gap-2 pt-2">
-                {edu.tech.map((tech, idx) => (
-                  <span
-                    key={idx}
-                    className="px-3 py-1 text-sm rounded-full bg-[#63e]/10 text-[#D4D4D4] border border-[#D4D4D4]/30"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: fromLeft ? -50 : 50 }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 md:gap-12 py-10 border-b"
+      style={{ borderColor: 'rgba(0,0,0,0.07)' }}
+    >
+      <div className="space-y-1">
+        <p className="text-xs tracking-[0.15em] uppercase text-black/30">{item.period}</p>
+        {item.location && <p className="text-xs text-black/25">{item.location}</p>}
+        <p className="text-xs font-medium mt-1 text-black/40">{item.center}</p>
+      </div>
+      <div className="space-y-3">
+        <h3 className="text-lg md:text-xl font-bold text-gray-900 leading-snug">{item.title}</h3>
+        <p className="text-sm leading-relaxed text-black/45">{item.description}</p>
+        <div className="flex flex-wrap gap-2 pt-1">
+          {item.tech.map((t, i) => (
+            <span key={i} className="text-xs px-3 py-1 rounded-full border border-black/10 text-black/40">{t}</span>
           ))}
         </div>
+      </div>
+    </motion.div>
+  );
+};
+
+export const Education = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: '-10%' });
+
+  return (
+    <section id="formacion" className="px-10 md:px-16 py-14 border-t" style={{ borderColor: 'rgba(0,0,0,0.07)' }}>
+      <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+        className="text-[10px] tracking-[0.3em] uppercase block mb-3 text-black/30">
+        Formación
+      </motion.span>
+      <div className="overflow-hidden mb-12">
+        <motion.h2 ref={ref} initial={{ y: '100%' }} animate={inView ? { y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="text-4xl md:text-7xl font-black uppercase tracking-tight text-gray-900 leading-none">
+          Educación
+        </motion.h2>
+      </div>
+      <div className="border-t" style={{ borderColor: 'rgba(0,0,0,0.07)' }}>
+        {education.map((edu, i) => <EduItem key={i} item={edu} index={i} />)}
       </div>
     </section>
   );
