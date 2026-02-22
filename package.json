@@ -16,11 +16,7 @@
     "animate.css": "^4.1.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-<<<<<<< HEAD
     "framer-motion": "^12.6.5",
-=======
-    "framer-motion": "^12.23.24",
->>>>>>> f3fc8db55080b5efbb069aca0b71aea07dccf413
     "i18next": "^24.2.3",
     "i18next-browser-languagedetector": "^8.0.4",
     "lucide-react": "^0.488.0",
