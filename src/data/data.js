@@ -48,26 +48,5 @@ export const projects = [
         icon: iconFirebase,
       }
     ],
-  },
-  {
-    title: "Portfolio Web",
-    subtitle: "Sitio web personal",
-    description: "Este portfolio ha sido diseñado y desarrollado por mí para mostrar mi trabajo, experiencia y habilidades en desarrollo frontend.",
-    image: portfolioImg,
-    link: "https://github.com/DevRodrigoPdp/portfolio",
-    technologies: [
-      {
-        name: "React",
-        icon: reactIcon,
-      },
-      {
-        name: "JavaScript",
-        icon: jsIcon,
-      },
-      {
-        name: "Tailwind CSS",
-        icon: tailwindIcon,
-      }
-    ],
   }
 ];
