@@ -6,17 +6,9 @@ const education = [
     title: 'Técnico Superior en Desarrollo de Aplicaciones Web (DAW)',
     center: 'IES Francisco de Goya',
     location: 'Madrid, España',
-    period: '2025 – Actualidad',
+    period: 'FEB 2026 – Actualidad',
     description: 'Formación en desarrollo web full-stack: aplicaciones modernas, bases de datos y despliegue.',
     tech: ['PHP', 'JavaScript', 'MySQL', 'PostgreSQL', 'Apache'],
-  },
-  {
-    title: 'Desarrollo Frontend (Autodidacta)',
-    center: 'Estudio Personal',
-    location: '',
-    period: '2024 – Actualidad',
-    description: 'React, Tailwind CSS, Next.js, consumo de APIs, routing, gestión de estado y buenas prácticas UI/UX.',
-    tech: ['React', 'Tailwind', 'Next.js', 'Git', 'Figma'],
   },
   {
     title: 'Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)',
@@ -39,20 +31,19 @@ const EduItem = ({ item, index }) => {
       initial={{ opacity: 0, x: fromLeft ? -50 : 50 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 md:gap-12 py-10 border-b"
-      style={{ borderColor: 'rgba(0,0,0,0.07)' }}
+      className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 md:gap-12 py-10 border-b border-stone-200"
     >
       <div className="space-y-1">
-        <p className="text-xs tracking-[0.15em] uppercase text-black/30">{item.period}</p>
-        {item.location && <p className="text-xs text-black/25">{item.location}</p>}
-        <p className="text-xs font-medium mt-1 text-black/40">{item.center}</p>
+        <p className="text-xs tracking-[0.15em] uppercase text-stone-500 font-medium">{item.period}</p>
+        {item.location && <p className="text-xs text-stone-400">{item.location}</p>}
+        <p className="text-xs font-semibold mt-1 text-stone-600">{item.center}</p>
       </div>
       <div className="space-y-3">
         <h3 className="text-lg md:text-xl font-bold text-gray-900 leading-snug">{item.title}</h3>
-        <p className="text-sm leading-relaxed text-black/45">{item.description}</p>
+        <p className="text-sm leading-relaxed text-stone-600">{item.description}</p>
         <div className="flex flex-wrap gap-2 pt-1">
           {item.tech.map((t, i) => (
-            <span key={i} className="text-xs px-3 py-1 rounded-full border border-black/10 text-black/40">{t}</span>
+            <span key={i} className="text-xs px-3 py-1 rounded-full border border-stone-200 text-stone-500 bg-white">{t}</span>
           ))}
         </div>
       </div>
@@ -65,9 +56,9 @@ export const Education = () => {
   const inView = useInView(ref, { once: true, margin: '-10%' });
 
   return (
-    <section id="formacion" className="px-10 md:px-16 py-14 border-t" style={{ borderColor: 'rgba(0,0,0,0.07)' }}>
+    <section id="formacion" className="px-10 md:px-16 py-14 border-t border-stone-200">
       <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-        className="text-[10px] tracking-[0.3em] uppercase block mb-3 text-black/30">
+        className="text-[10px] tracking-[0.3em] uppercase block mb-3 text-stone-500 font-medium">
         Formación
       </motion.span>
       <div className="overflow-hidden mb-12">
@@ -77,7 +68,7 @@ export const Education = () => {
           Educación
         </motion.h2>
       </div>
-      <div className="border-t" style={{ borderColor: 'rgba(0,0,0,0.07)' }}>
+      <div className="border-t border-stone-200">
         {education.map((edu, i) => <EduItem key={i} item={edu} index={i} />)}
       </div>
     </section>

@@ -102,7 +102,7 @@ export const SidebarNav = ({ activeSectionId }) => {
       <div className="px-5">
         <span className="text-[9px] tracking-[0.2em] uppercase text-black/20"
           style={{ writingMode: hovered ? 'horizontal-tb' : 'vertical-rl' }}>
-          2025
+          2026
         </span>
       </div>
     </motion.aside>

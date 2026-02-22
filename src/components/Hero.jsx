@@ -12,8 +12,6 @@ export const Hero = () => {
 
   return (
     <section id="hero" ref={ref} className="relative flex flex-col justify-center min-h-screen px-10 md:px-16 overflow-hidden">
-
-      {/* Decorative large background letter */}
       <motion.span
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.04 }}
@@ -24,20 +22,18 @@ export const Hero = () => {
         R
       </motion.span>
 
-      {/* Top status row */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className="flex items-center gap-3 mb-12"
       >
-        <span className="w-2 h-2 rounded-full bg-lime-500 animate-pulse" />
-        <span className="text-[10px] tracking-[0.3em] uppercase text-black/35">Disponible para proyectos</span>
-        <span className="w-px h-3 bg-black/15" />
-        <span className="text-[10px] tracking-[0.3em] uppercase text-black/25">Madrid · 2025</span>
+        
+        <span className="text-[10px] tracking-[0.3em] uppercase text-stone-500 font-medium">Disponible para proyectos</span>
+        <span className="w-px h-3 bg-stone-300" />
+        <span className="text-[10px] tracking-[0.3em] uppercase text-stone-400">Madrid · 2025</span>
       </motion.div>
 
-      {/* Giant name — two speeds */}
       <motion.div style={{ y: yTitle, opacity }}>
         <div className="overflow-hidden">
           <motion.h1
@@ -51,8 +47,7 @@ export const Hero = () => {
         </div>
         <div className="overflow-hidden">
           <motion.h1
-            className="parallax-title block"
-            style={{ color: 'rgba(0,0,0,0.2)' }}
+            className="parallax-title block text-stone-300"
             initial={{ y: '110%' }}
             animate={{ y: 0 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.18 }}
@@ -62,25 +57,22 @@ export const Hero = () => {
         </div>
       </motion.div>
 
-      {/* Divider line */}
       <motion.div
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
         transition={{ delay: 0.9, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="h-px bg-black/10 my-10 origin-left"
+        className="h-px bg-stone-200 my-10 origin-left"
       />
 
-      {/* Bottom row */}
       <motion.div style={{ y: yDesc, opacity }} className="flex flex-col md:flex-row md:items-end justify-between gap-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
         >
-          <p className="text-sm md:text-base max-w-sm leading-relaxed text-black/45 mb-6">
+          <p className="text-sm md:text-base max-w-sm leading-relaxed text-stone-600 mb-6">
             Desarrollador Frontend especializado en interfaces limpias, rápidas y experiencias digitales de alto impacto.
           </p>
-          {/* Skill tags */}
           <div className="flex flex-wrap gap-2">
             {tags.map((tag, i) => (
               <motion.span
@@ -88,7 +80,7 @@ export const Hero = () => {
                 initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1 + i * 0.07, duration: 0.4 }}
-                className="text-[10px] tracking-[0.1em] uppercase px-3 py-1 rounded-full border border-black/10 text-black/35 bg-white"
+                className="text-[10px] tracking-[0.1em] uppercase px-3 py-1 rounded-full border border-stone-200 text-stone-500 bg-white"
               >
                 {tag}
               </motion.span>
@@ -106,7 +98,7 @@ export const Hero = () => {
             href="#projects"
             data-hover
             onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="group flex items-center gap-3 text-sm font-medium tracking-wide border border-black/20 px-7 py-3.5 rounded-full hover:border-lime-600 hover:text-lime-700 text-black/55 transition-all duration-300 bg-white"
+            className="group flex items-center gap-3 text-sm font-medium tracking-wide border border-stone-300 px-7 py-3.5 rounded-full hover:border-lime-600 hover:text-lime-700 text-stone-600 transition-all duration-300 bg-white shadow-sm"
           >
             Ver proyectos
             <motion.span animate={{ x: [0, 4, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>→</motion.span>
@@ -115,14 +107,13 @@ export const Hero = () => {
             href="#contact"
             data-hover
             onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="text-xs tracking-[0.15em] uppercase text-black/30 hover:text-black/60 transition-colors"
+            className="text-xs tracking-[0.15em] uppercase text-stone-400 hover:text-stone-700 transition-colors"
           >
             Contactar ↓
           </a>
         </motion.div>
       </motion.div>
 
-      {/* Subtle scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

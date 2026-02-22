@@ -21,7 +21,7 @@ const MagLink = ({ href, children }) => {
         y.set((e.clientY - rect.top - rect.height / 2) * 0.3);
       }}
       onMouseLeave={() => { x.set(0); y.set(0); }}
-      className="inline-block text-xs tracking-[0.2em] uppercase py-3 px-6 rounded-full transition-all duration-300 border border-black/15 text-black/40 hover:border-lime-600 hover:text-lime-700"
+      className="inline-block text-xs tracking-[0.2em] uppercase py-3 px-6 rounded-full transition-all duration-300 border border-stone-300 text-stone-500 hover:border-lime-600 hover:text-lime-700 bg-white"
       data-hover
     >
       {children}
@@ -31,10 +31,10 @@ const MagLink = ({ href, children }) => {
 
 export const Contact = () => {
   return (
-    <section id="contact" className="px-10 md:px-16 py-16 border-t" style={{ borderColor: 'rgba(0,0,0,0.07)' }}>
+    <section id="contact" className="px-10 md:px-16 py-16 border-t border-stone-200">
       <motion.span
         initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-        className="text-[10px] tracking-[0.3em] uppercase block mb-12 text-black/30"
+        className="text-[10px] tracking-[0.3em] uppercase block mb-12 text-stone-500 font-medium"
       >
         Contacto
       </motion.span>
@@ -52,7 +52,7 @@ export const Contact = () => {
         <motion.h2
           initial={{ y: '100%' }} whileInView={{ y: 0 }}
           transition={{ duration: 0.9, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[clamp(2.5rem,8vw,7rem)] font-black uppercase tracking-tight leading-none text-black/12"
+          className="text-[clamp(2.5rem,8vw,7rem)] font-black uppercase tracking-tight leading-none text-stone-300"
         >
           juntos.
         </motion.h2>
@@ -62,7 +62,7 @@ export const Contact = () => {
         <motion.p
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="max-w-xs text-sm leading-relaxed text-black/40"
+          className="max-w-xs text-sm leading-relaxed text-stone-600"
         >
           Abierto a nuevas oportunidades, proyectos freelance y colaboraciones creativas.
         </motion.p>
