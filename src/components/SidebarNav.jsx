@@ -26,8 +26,8 @@ export const SidebarNav = ({ activeSectionId }) => {
       onMouseLeave={() => setHovered(false)}
       className="fixed top-0 left-0 h-screen z-100 flex flex-col items-start justify-between py-8 border-r overflow-hidden"
       style={{
-        borderColor: 'rgba(0,0,0,0.08)',
-        background: 'rgba(245,245,240,0.92)',
+        borderColor: 'rgba(255,255,240,0.1)',
+        background: 'rgba(2,44,34,0.4)',
         backdropFilter: 'blur(16px)',
         zIndex: 100,
       }}
@@ -38,7 +38,7 @@ export const SidebarNav = ({ activeSectionId }) => {
         onClick={() => scrollTo('hero')}
         data-hover
       >
-        <span className="text-xs font-black tracking-widest text-gray-800 flex-shrink-0"
+        <span className="text-xs font-black tracking-widest text-[#fffff0] flex-shrink-0"
           style={{ writingMode: hovered ? 'horizontal-tb' : 'vertical-rl', transition: 'writing-mode 0s' }}>
           {hovered ? 'RP' : 'RP'}
         </span>
@@ -49,7 +49,7 @@ export const SidebarNav = ({ activeSectionId }) => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -8 }}
               transition={{ duration: 0.2 }}
-              className="text-[10px] tracking-[0.15em] uppercase text-black/40 whitespace-nowrap"
+              className="text-[10px] tracking-[0.15em] uppercase text-[#fffff0]/40 whitespace-nowrap"
             >
               Portfolio
             </motion.span>
@@ -66,7 +66,7 @@ export const SidebarNav = ({ activeSectionId }) => {
               key={id}
               onClick={() => scrollTo(id)}
               className={`flex items-center gap-3 w-full px-2 py-2.5 rounded-lg transition-all duration-200 text-left ${
-                isActive ? 'bg-black/06' : 'hover:bg-black/04'
+                isActive ? 'bg-black/06' : 'hover:bg-[#fde047]/04'
               }`}
               aria-label={label}
             >
@@ -74,8 +74,8 @@ export const SidebarNav = ({ activeSectionId }) => {
               <span
                 className="flex-shrink-0 w-1.5 h-1.5 rounded-full transition-all duration-300"
                 style={{
-                  background: isActive ? '#4d7c0f' : 'rgba(0,0,0,0.2)',
-                  boxShadow: isActive ? '0 0 6px rgba(77,124,15,0.5)' : 'none',
+                  background: isActive ? '#facc15' : 'rgba(255,255,240,0.3)',
+                  boxShadow: isActive ? '0 0 6px rgba(250,204,21,0.5)' : 'none',
                 }}
               />
               <AnimatePresence>
@@ -86,7 +86,7 @@ export const SidebarNav = ({ activeSectionId }) => {
                     exit={{ opacity: 0, x: -6 }}
                     transition={{ duration: 0.2, delay: 0.05 }}
                     className={`text-xs whitespace-nowrap transition-colors ${
-                      isActive ? 'text-lime-700 font-semibold' : 'text-black/40'
+                      isActive ? 'text-[#fffff0] font-semibold' : 'text-[#fffff0]/40'
                     }`}
                   >
                     {label}
@@ -100,7 +100,7 @@ export const SidebarNav = ({ activeSectionId }) => {
 
       {/* Year */}
       <div className="px-5">
-        <span className="text-[9px] tracking-[0.2em] uppercase text-black/20"
+        <span className="text-[9px] tracking-[0.2em] uppercase text-[#fffff0]/30"
           style={{ writingMode: hovered ? 'horizontal-tb' : 'vertical-rl' }}>
           2026
         </span>

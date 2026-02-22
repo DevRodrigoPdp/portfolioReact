@@ -16,7 +16,7 @@ export const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.04 }}
         transition={{ delay: 0.5, duration: 1 }}
-        className="absolute right-0 top-1/2 -translate-y-1/2 text-[30vw] font-black leading-none text-gray-900 select-none pointer-events-none"
+        className="absolute right-0 top-1/2 -translate-y-1/2 text-[30vw] font-black leading-none text-[#fffff0] select-none pointer-events-none"
         aria-hidden
       >
         R
@@ -29,15 +29,15 @@ export const Hero = () => {
         className="flex items-center gap-3 mb-12"
       >
         
-        <span className="text-[10px] tracking-[0.3em] uppercase text-stone-500 font-medium">Disponible para proyectos</span>
-        <span className="w-px h-3 bg-stone-300" />
-        <span className="text-[10px] tracking-[0.3em] uppercase text-stone-400">Madrid · 2025</span>
+        <span className="text-[10px] tracking-[0.3em] uppercase text-[#fffff0]/60 font-medium">Disponible para proyectos</span>
+        <span className="w-px h-3 bg-[#fffff0]/30" />
+        <span className="text-[10px] tracking-[0.3em] uppercase text-[#fffff0]/40">Madrid · 2025</span>
       </motion.div>
 
       <motion.div style={{ y: yTitle, opacity }}>
         <div className="overflow-hidden">
           <motion.h1
-            className="parallax-title text-gray-900 block"
+            className="parallax-title text-[#fffff0] block drop-shadow-sm"
             initial={{ y: '110%' }}
             animate={{ y: 0 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
@@ -47,7 +47,7 @@ export const Hero = () => {
         </div>
         <div className="overflow-hidden">
           <motion.h1
-            className="parallax-title block text-stone-300"
+            className="parallax-title block text-[#fffff0]/60"
             initial={{ y: '110%' }}
             animate={{ y: 0 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.18 }}
@@ -61,7 +61,7 @@ export const Hero = () => {
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
         transition={{ delay: 0.9, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="h-px bg-stone-200 my-10 origin-left"
+        className="h-px bg-[#fffff0]/20 my-10 origin-left"
       />
 
       <motion.div style={{ y: yDesc, opacity }} className="flex flex-col md:flex-row md:items-end justify-between gap-8">
@@ -70,7 +70,7 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
         >
-          <p className="text-sm md:text-base max-w-sm leading-relaxed text-stone-600 mb-6">
+          <p className="text-sm md:text-base max-w-sm leading-relaxed text-[#fffff0]/80 mb-6 font-medium">
             Desarrollador Frontend especializado en interfaces limpias, rápidas y experiencias digitales de alto impacto.
           </p>
           <div className="flex flex-wrap gap-2">
@@ -80,7 +80,7 @@ export const Hero = () => {
                 initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1 + i * 0.07, duration: 0.4 }}
-                className="text-[10px] tracking-[0.1em] uppercase px-3 py-1 rounded-full border border-stone-200 text-stone-500 bg-white"
+                className="text-[10px] tracking-[0.1em] uppercase px-3 py-1 rounded-full border border-[#fffff0]/20 text-[#fffff0]/60 bg-[#fffff0]/10 backdrop-blur-sm shadow-sm"
               >
                 {tag}
               </motion.span>
@@ -98,7 +98,7 @@ export const Hero = () => {
             href="#projects"
             data-hover
             onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="group flex items-center gap-3 text-sm font-medium tracking-wide border border-stone-300 px-7 py-3.5 rounded-full hover:border-lime-600 hover:text-lime-700 text-stone-600 transition-all duration-300 bg-white shadow-sm"
+            className="group flex items-center gap-3 text-sm font-semibold tracking-wide bg-[#facc15] hover:bg-[#fde047] text-[#022c22] px-7 py-3.5 rounded-full transition-all duration-300 shadow-lg"
           >
             Ver proyectos
             <motion.span animate={{ x: [0, 4, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>→</motion.span>
@@ -107,7 +107,7 @@ export const Hero = () => {
             href="#contact"
             data-hover
             onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="text-xs tracking-[0.15em] uppercase text-stone-400 hover:text-stone-700 transition-colors"
+            className="text-xs tracking-[0.15em] uppercase text-[#fffff0]/60 hover:text-[#fffff0] transition-colors"
           >
             Contactar ↓
           </a>

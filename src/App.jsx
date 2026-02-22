@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 import { CustomCursor } from './components/CustomCursor';
+import { ParticlesBackground } from './components/ParticlesBackground';
 import { SidebarNav }  from './components/SidebarNav';
 import { Hero }        from './components/Hero';
 import { Projects }    from './components/Projects';
@@ -13,22 +14,21 @@ import { About }       from './components/About';
 import { Contact }     from './components/Contacto';
 import { Footer }      from './components/Footer';
 
-// Background colors per section
+// Background colors per section (Removed to use CSS animated background)
 const BG_COLORS = {
-  hero:        '#f5f5f0',
-  projects:    '#efefea',
-  experiencia: '#f2f2ed',
-  formacion:   '#eeeee9',
-  about:       '#ebebE6',
-  contact:     '#f0f0eb',
+  hero:        'transparent',
+  projects:    'transparent',
+  experiencia: 'transparent',
+  formacion:   'transparent',
+  about:       'transparent',
+  contact:     'transparent',
 };
 
 function App() {
   const [activeSection, setActiveSection] = useState('hero');
-  const [bgColor, setBgColor] = useState(BG_COLORS.hero);
   const sectionIds = ['hero', 'projects', 'experiencia', 'formacion', 'about', 'contact'];
 
-  // IntersectionObserver for sidebar + bg color
+  // IntersectionObserver for sidebar + active section
   useEffect(() => {
     const observers = [];
     sectionIds.forEach((id) => {
@@ -38,7 +38,6 @@ function App() {
         ([entry]) => {
           if (entry.isIntersecting) {
             setActiveSection(id);
-            setBgColor(BG_COLORS[id] || '#0a0a0a');
           }
         },
         { rootMargin: '-15% 0px -15% 0px', threshold: 0 }
@@ -50,12 +49,11 @@ function App() {
   }, []);
 
   return (
-    <motion.div
-      animate={{ backgroundColor: bgColor }}
-      transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+    <div
       className="layout"
-      style={{ minHeight: '100vh' }}
+      style={{ minHeight: '100vh', backgroundColor: 'transparent' }}
     >
+      <ParticlesBackground />
       <CustomCursor />
 
       {/* Navegación lateral — landmark nav para lectores de pantalla */}
@@ -73,7 +71,7 @@ function App() {
         <Contact />
         <Footer />
       </main>
-    </motion.div>
+    </div>
   );
 }
 

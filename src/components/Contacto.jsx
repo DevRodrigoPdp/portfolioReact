@@ -21,7 +21,7 @@ const MagLink = ({ href, children }) => {
         y.set((e.clientY - rect.top - rect.height / 2) * 0.3);
       }}
       onMouseLeave={() => { x.set(0); y.set(0); }}
-      className="inline-block text-xs tracking-[0.2em] uppercase py-3 px-6 rounded-full transition-all duration-300 border border-stone-300 text-stone-500 hover:border-lime-600 hover:text-lime-700 bg-white"
+      className="inline-block text-xs tracking-[0.2em] uppercase py-3 px-6 rounded-full transition-all duration-300 border border-[#fffff0]/20 text-[#fffff0]/80 hover:bg-[#facc15] hover:text-white bg-[#fffff0]/10 backdrop-blur-sm"
       data-hover
     >
       {children}
@@ -31,10 +31,10 @@ const MagLink = ({ href, children }) => {
 
 export const Contact = () => {
   return (
-    <section id="contact" className="px-10 md:px-16 py-16 border-t border-stone-200">
+    <section id="contact" className="px-10 md:px-16 py-16 border-t border-[#fffff0]/20">
       <motion.span
         initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-        className="text-[10px] tracking-[0.3em] uppercase block mb-12 text-stone-500 font-medium"
+        className="text-[10px] tracking-[0.3em] uppercase block mb-12 text-[#fffff0]/60 font-medium"
       >
         Contacto
       </motion.span>
@@ -43,7 +43,7 @@ export const Contact = () => {
         <motion.h2
           initial={{ y: '100%' }} whileInView={{ y: 0 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[clamp(2.5rem,8vw,7rem)] font-black uppercase tracking-tight leading-none text-gray-900"
+          className="text-[clamp(2.5rem,8vw,7rem)] font-black uppercase tracking-tight leading-none text-[#fffff0] drop-shadow-md"
         >
           Trabajemos
         </motion.h2>
@@ -52,7 +52,7 @@ export const Contact = () => {
         <motion.h2
           initial={{ y: '100%' }} whileInView={{ y: 0 }}
           transition={{ duration: 0.9, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[clamp(2.5rem,8vw,7rem)] font-black uppercase tracking-tight leading-none text-stone-300"
+          className="text-[clamp(2.5rem,8vw,7rem)] font-black uppercase tracking-tight leading-none text-[#fffff0]/30"
         >
           juntos.
         </motion.h2>
@@ -62,7 +62,7 @@ export const Contact = () => {
         <motion.p
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="max-w-xs text-sm leading-relaxed text-stone-600"
+          className="max-w-xs text-sm leading-relaxed text-[#fffff0]/80 font-medium"
         >
           Abierto a nuevas oportunidades, proyectos freelance y colaboraciones creativas.
         </motion.p>
