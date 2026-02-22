@@ -1,17 +1,54 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rodrigo Puerta - Desarrollador</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="icon" type="image/x-icon" href="public/icons8-code-16.png" />
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- SEO primario -->
+    <title>Rodrigo Puerta · Desarrollador Frontend</title>
+    <meta name="description" content="Portfolio de Rodrigo Puerta del Pozo, desarrollador Frontend especializado en React, Next.js y Tailwind CSS. Disponible para proyectos y oportunidades en Madrid (remoto/híbrido)." />
+    <meta name="author" content="Rodrigo Puerta del Pozo" />
+    <meta name="keywords" content="desarrollador frontend, React, Next.js, Tailwind CSS, portfolio, Madrid, JavaScript" />
+    <link rel="canonical" href="https://rpuerta.vercel.app" />
+
+    <!-- Open Graph (redes sociales) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rpuerta.vercel.app" />
+    <meta property="og:title" content="Rodrigo Puerta · Desarrollador Frontend" />
+    <meta property="og:description" content="Desarrollador Frontend especializado en React, Next.js y Tailwind. Interfaces limpias, rápidas y de alto impacto." />
+    <meta property="og:image" content="https://rpuerta.vercel.app/og-image.png" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Rodrigo Puerta Portfolio" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Rodrigo Puerta · Desarrollador Frontend" />
+    <meta name="twitter:description" content="Desarrollador Frontend especializado en React, Next.js y Tailwind. Portfolio 2025." />
+    <meta name="twitter:image" content="https://rpuerta.vercel.app/og-image.png" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#f5f5f0" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="RP Portfolio" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/icons8-code-16.png" />
+    <link rel="apple-touch-icon" href="/icons8-code-16.png" />
+
+    <!-- Fuentes — solo Inter (la que usamos en index.css) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <div id="root"></div>
+    <!--
+      Estructura semántica para lectores de pantalla y rastreadores.
+      React monta el contenido completo dentro de #root.
+    -->
+    <div id="root" role="application" aria-label="Portfolio de Rodrigo Puerta"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -57,9 +57,14 @@ function App() {
       style={{ minHeight: '100vh' }}
     >
       <CustomCursor />
-      <SidebarNav activeSectionId={activeSection} />
 
-      <div className="main-content">
+      {/* Navegación lateral — landmark nav para lectores de pantalla */}
+      <nav aria-label="Navegación de secciones">
+        <SidebarNav activeSectionId={activeSection} />
+      </nav>
+
+      {/* Contenido principal */}
+      <main className="main-content" id="main-content" aria-label="Contenido principal">
         <Hero />
         <Projects />
         <Experience />
@@ -67,7 +72,7 @@ function App() {
         <About />
         <Contact />
         <Footer />
-      </div>
+      </main>
     </motion.div>
   );
 }

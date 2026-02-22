@@ -1,0 +1,29 @@
+{
+    "name": "Rodrigo Puerta · Portfolio",
+    "short_name": "RP Portfolio",
+    "description": "Portfolio de Rodrigo Puerta del Pozo, desarrollador Frontend.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#f5f5f0",
+    "theme_color": "#f5f5f0",
+    "orientation": "portrait-primary",
+    "lang": "es",
+    "icons": [
+        {
+            "src": "/icons8-code-16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons8-code-16.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [],
+    "categories": [
+        "portfolio",
+        "productivity"
+    ]
+}
