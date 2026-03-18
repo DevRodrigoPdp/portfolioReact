@@ -1,79 +1,142 @@
+import { useState, useEffect } from 'react';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
+import { GlobalNav } from './components/GlobalNav';
+import { ProjectViews } from './components/ProjectViews';
+import { AboutPage } from './components/AboutPage';
+import { CinematicFooter } from './components/CinematicFooter';
 import './index.css';
-import './App.css';
-import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
 
-import { CustomCursor } from './components/CustomCursor';
-import { ParticlesBackground } from './components/ParticlesBackground';
-import { SidebarNav }  from './components/SidebarNav';
-import { MobileNav } from './components/MobileNav';
-import { Hero }        from './components/Hero';
-import { Projects }    from './components/Projects';
-import { Experience }  from './components/Experience';
-import { Education }   from './components/Education';
-import { About }       from './components/About';
-import { Contact }     from './components/Contacto';
-import { Footer }      from './components/Footer';
+const SECTIONS = ['works', 'about', 'contact'];
 
-// Background colors per section (Removed to use CSS animated background)
-const BG_COLORS = {
-  hero:        'transparent',
-  projects:    'transparent',
-  experiencia: 'transparent',
-  formacion:   'transparent',
-  about:       'transparent',
-  contact:     'transparent',
-};
+function AppContent() {
+  const [activeSection, setActiveSection] = useState('works');
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [cursorHover, setCursorHover] = useState(false);
+  const { t } = useLanguage();
 
-function App() {
-  const [activeSection, setActiveSection] = useState('hero');
-  const sectionIds = ['hero', 'projects', 'experiencia', 'formacion', 'about', 'contact'];
+  // Custom cursor
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setCursorPos({ x: e.clientX, y: e.clientY });
+    };
 
-  // IntersectionObserver for sidebar + active section
+    const handleMouseOver = (e) => {
+      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.cursor-hover')) {
+        setCursorHover(true);
+      }
+    };
+
+    const handleMouseOut = (e) => {
+      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.cursor-hover')) {
+        setCursorHover(false);
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    document.addEventListener('mouseover', handleMouseOver, { passive: true });
+    document.addEventListener('mouseout', handleMouseOut, { passive: true });
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseover', handleMouseOver);
+      document.removeEventListener('mouseout', handleMouseOut);
+    };
+  }, []);
+
+  // Handle navigation
+  const handleNavigate = (section) => {
+    setActiveSection(section);
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Intersection Observer for section detection
   useEffect(() => {
     const observers = [];
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const obs = new IntersectionObserver(
+    
+    SECTIONS.forEach((sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (!element) return;
+
+      const observer = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting) {
-            setActiveSection(id);
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            setActiveSection(sectionId);
           }
         },
-        { rootMargin: '-15% 0px -15% 0px', threshold: 0 }
+        { threshold: 0.5 }
       );
-      obs.observe(el);
-      observers.push(obs);
+
+      observer.observe(element);
+      observers.push(observer);
     });
-    return () => observers.forEach(o => o.disconnect());
+
+    return () => observers.forEach(obs => obs.disconnect());
   }, []);
 
   return (
-    <div
-      className="layout"
-      style={{ minHeight: '100vh', backgroundColor: 'transparent' }}
-    >
-      <ParticlesBackground />
-      <CustomCursor />
-      <MobileNav activeSectionId={activeSection} />
+    <div className="bg-[#0a0a0a]">
+      {/* Custom Cursor */}
+      <div
+        className={`cursor ${cursorHover ? 'hover' : ''}`}
+        style={{
+          left: cursorPos.x,
+          top: cursorPos.y,
+        }}
+      />
 
-      {/* Navegación lateral — landmark nav para lectores de pantalla */}
-      <nav aria-label="Navegación de secciones">
-        <SidebarNav activeSectionId={activeSection} />
-      </nav>
+      {/* Global Navigation */}
+      <GlobalNav activeSection={activeSection} onNavigate={handleNavigate} />
 
-      {/* Contenido principal */}
-      <main className="main-content" id="main-content" aria-label="Contenido principal">
-        <Hero />
-        <Projects />
-        <Experience />
-        <Education />
-        <About />
-        <Contact />
-        <Footer />
+      {/* Main Content - All sections as siblings for natural scroll */}
+      <main>
+        {/* Projects - rendered as flat sections */}
+        <ProjectViews onSlideChange={setCurrentSlide} />
+
+        {/* About Section */}
+        <section id="about" className="h-screen h-dvh">
+          <AboutPage />
+        </section>
+
+        {/* Footer / Contact Section */}
+        <section id="contact" className="h-screen h-dvh">
+          <CinematicFooter />
+        </section>
       </main>
+
+      {/* Scroll Indicator */}
+      {activeSection === 'works' && currentSlide === 0 && (
+        <div className="scroll-indicator">
+          <span>SCROLL</span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M6 2v8M2 6l4 4 4-4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+      )}
+
+      {/* Page Indicator */}
+      <div className="page-indicator">
+        {SECTIONS.map((section) => (
+          <button
+            key={section}
+            onClick={() => handleNavigate(section)}
+            className={`indicator-dot ${activeSection === section ? 'active' : ''}`}
+            aria-label={`Go to ${section}`}
+          />
+        ))}
+      </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 }
 
