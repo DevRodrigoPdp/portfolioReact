@@ -66,6 +66,14 @@ export function ProjectViews({ onSlideChange }) {
               ? 'bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950' 
               : 'bg-gradient-to-br from-gray-950 via-zinc-900 to-gray-950'
           }`}
+          style={{
+            backgroundImage: project.id === 1 
+              ? 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url(https://images.unsplash.com/photo-1544011343-494fe72e6bab?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)'
+              : 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url(https://images.unsplash.com/photo-1505666287802-931dc83948e9?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
         >
           <div className="text-center px-8">
             <h1 className="text-giant text-white mb-8">
