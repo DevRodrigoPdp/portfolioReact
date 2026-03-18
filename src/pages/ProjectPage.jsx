@@ -42,7 +42,7 @@ export const ProjectPage = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
-        className="nav-corner nav-corner-tl z-[200]"
+        className="project-back-btn"
       >
         <Link to="/" className="nav-link text-mono text-[0.65rem] flex items-center gap-2">
           ← Back

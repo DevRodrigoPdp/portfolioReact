@@ -65,7 +65,7 @@ export function AboutPage() {
             <span className="text-mono" style={{ fontSize: '0.6rem', color: 'rgba(255,255,240,0.2)', letterSpacing: '0.15em', display: 'block', marginBottom: '1rem' }}>
               STACK
             </span>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem' }}>
+            <div className="about-stack-grid">
               {STACK.map((item) => (
                 <StackItem key={item.name} {...item} />
               ))}

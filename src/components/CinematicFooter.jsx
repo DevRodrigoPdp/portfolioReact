@@ -51,19 +51,6 @@ export function CinematicFooter() {
         </a>
       </div>
 
-      {/* Always visible contact info (subtle) */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center">
-        <div className="text-mono text-white/40 text-xs tracking-widest mb-2">
-          {t('contact')}
-        </div>
-        <a
-          href="mailto:rpuertadelpozo@gmail.com"
-          className="text-white/60 hover:text-white transition-colors text-sm"
-        >
-          rpuertadelpozo@gmail.com
-        </a>
-      </div>
-
       {/* Hover Hint */}
       <div className="footer-hint" style={{ opacity: isHovered ? 0 : 1 }}>
         {t('hoverHint')}

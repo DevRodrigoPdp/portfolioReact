@@ -51,6 +51,7 @@ body {
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* ═══ SELECTION ═══ */
@@ -511,6 +512,25 @@ body {
 .cursor.hover { width: 48px; height: 48px; }
 .cursor.hidden { opacity: 0; }
 
+/* ── Visibilidad nav desktop / mobile ── */
+.nav-desktop   { display: block; }
+.nav-mobile-btn {
+  display: none;
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 50;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  .nav-desktop    { display: none !important; }
+  .nav-mobile-btn { display: block; }
+}
+
 /* Mobile menu button - hidden by default */
 .mobile-menu-button {
   display: none;
@@ -579,9 +599,11 @@ body {
   }
   
   /* Typography */
-  .text-giant { 
-    font-size: clamp(2rem, 15vw, 5rem);
+  .text-giant {
+    font-size: clamp(1.8rem, 7.5vw, 5rem);
     line-height: 0.9;
+    font-stretch: normal;
+    letter-spacing: -0.01em;
   }
   
   .project-meta {
@@ -618,22 +640,44 @@ body {
     font-size: 0.5rem;
   }
   
-  /* Footer */
+  /* Footer — móvil: layout estático sin hover */
+  .cinematic-footer {
+    cursor: default;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
   .footer-cta {
-    font-size: clamp(2rem, 12vw, 6rem);
+    font-size: clamp(1rem, 5vw, 2.5rem);
     padding: 0 1rem;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    position: relative;
   }
-  
+
+  .footer-reveal {
+    position: relative;
+    inset: auto;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    gap: 1.25rem;
+  }
+
   .footer-link {
-    font-size: clamp(1rem, 4vw, 1.5rem);
+    font-size: clamp(0.9rem, 4vw, 1.25rem);
   }
-  
+
   .footer-hint {
-    bottom: 1rem;
-    font-size: 0.5rem;
+    display: none;
   }
   
   /* About Page */
+  .about-canvas-container {
+    display: none;
+  }
+
   .about-content {
     padding: 1rem;
   }
@@ -659,8 +703,10 @@ body {
     padding: 0.2rem 0.4rem !important;
   }
   
-  .text-giant { 
-    font-size: clamp(1.5rem, 18vw, 4rem);
+  .text-giant {
+    font-size: clamp(1.5rem, 8vw, 4rem);
+    font-stretch: normal;
+    letter-spacing: -0.01em;
   }
   
   .project-meta {
@@ -669,7 +715,7 @@ body {
   }
   
   .footer-cta {
-    font-size: clamp(1.5rem, 14vw, 5rem);
+    font-size: clamp(1.5rem, 9vw, 5rem);
   }
   
   .footer-link {
@@ -696,19 +742,6 @@ body {
   .indicator-dot:hover {
     background: rgba(255, 255, 255, 0.2) !important;
     transform: none !important;
-  }
-}
-
-/* ═══ CASE STUDY CONTAINER ═══ */
-.case-study-container {
-  max-width: 100rem;
-  margin-inline: auto;
-  padding-inline: 2rem;
-}
-
-@media (min-width: 768px) {
-  .case-study-container {
-    padding-inline: 4rem;
   }
 }
 
@@ -762,37 +795,74 @@ body {
   padding: 0 1.5rem;
 }
 
-/* ════ RESPONSIVE MÓVIL ════ */
-@media (max-width: 768px) {
-  .case-study-section {
-    padding-block: 3rem;
-  }
+/* ── Grids fluidos — se adaptan solos sin media queries ── */
 
-  .cs-grid-single {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
+/* 1 imagen: 2 cols en ancho, 1 col cuando no cabe */
+.cs-grid-single {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
 
-  .cs-grid-double {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+/* 2 imágenes: 2 cols en ancho, 1 col cuando no cabe */
+.cs-grid-double {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: clamp(0.75rem, 2vw, 1rem);
+}
 
-  .cs-grid-ficha {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
+/* Ficha: 2 cols en ancho, 1 col cuando no cabe */
+.cs-grid-ficha {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: 0 3rem;
+}
 
-  .project-meta-bar {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem 1rem;
-  }
+/* Meta bar hero — wrap automático */
+.project-meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem clamp(1rem, 4vw, 3rem);
+  border-top: 1px solid rgba(255, 255, 240, 0.1);
+  padding-top: 1.5rem;
+}
 
-  .project-meta-wrapper {
-    bottom: 1.5rem;
-    padding: 0 1.5rem;
-  }
+/* Stack AboutPage — wrap automático */
+.about-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 0.5rem;
+}
+
+/* Case study padding fluido */
+.case-study-container {
+  max-width: 100rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 5vw, 4rem);
+}
+
+/* Footer links — no overflow */
+.footer-link {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Back button ProjectPage — siempre visible */
+.project-back-btn {
+  position: fixed;
+  top: clamp(1rem, 3vw, 2rem);
+  left: clamp(1rem, 3vw, 2rem);
+  z-index: 200;
+}
+
+/* Meta wrapper padding fluido */
+.project-meta-wrapper {
+  position: absolute;
+  bottom: clamp(1rem, 3vw, 2.5rem);
+  left: 0;
+  right: 0;
+  padding: 0 clamp(1rem, 5vw, 4rem);
 }
 
 /* ═══ ANIMATIONS ═══ */
