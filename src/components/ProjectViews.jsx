@@ -1,9 +1,11 @@
 import { useRef, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
 const projects = [
   {
     id: 1,
+    slug: 'synapses',
     title: 'SYNAPSES',
     mediaKey: 'REACT',
     typologyKey: 'eCommerce',
@@ -12,6 +14,7 @@ const projects = [
   },
   {
     id: 2,
+    slug: 'courtvision',
     title: 'COURTVISION',
     mediaKey: 'KOTLIN & FIREBASE',
     typologyKey: 'appAndroid',
@@ -75,7 +78,7 @@ export function ProjectViews({ onSlideChange }) {
             backgroundRepeat: 'no-repeat'
           }}
         >
-          <div className="text-center px-8">
+          <Link to={`/projects/${project.slug}`} className="text-center px-8 block cursor-pointer">
             <h1 className="text-giant text-white mb-8">
               {project.title}
             </h1>
@@ -98,7 +101,7 @@ export function ProjectViews({ onSlideChange }) {
                 <span className="meta-value">{project.year}</span>
               </div>
             </div>
-          </div>
+          </Link>
         </section>
       ))}
     </>

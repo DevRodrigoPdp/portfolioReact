@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(dir node_modules/@vitejs/)",
+      "Bash(node -e \"require\\(''@vitejs/plugin-react''\\)\")",
+      "Bash(rm -rf node_modules package-lock.json)",
+      "Bash(npm cache:*)"
+    ]
+  }
+}
