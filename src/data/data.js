@@ -79,7 +79,7 @@ export const projects = [
         ],
       },
     ],
-    link: "https://github.com/DevRodrigoPdp/Synapses/tree/main/Synapses",
+    link: "https://github.com/DevRodrigoPdp/Synapses",
     technologies: [
       { name: "React", icon: reactIcon },
       { name: "JavaScript", icon: jsIcon },
@@ -88,14 +88,47 @@ export const projects = [
   {
     slug: "courtvision",
     title: "CourtVision",
-    subtitle: "Mi trabajo de fin de grado",
+    subtitle: "Trabajo de Fin de Grado — Android",
     description:
       "Aplicación enfocada a entrenadores de baloncesto, donde pueden gestionar sus equipos y entrenamientos.",
-    fullDescription: `Escribe aquí la descripción completa de CourtVision.`,
     year: "2024",
     status: "Completado",
     image: courtvisionImg,
-    gallery: [],
+    sections: [
+      {
+        title: "Contexto y Propósito",
+        body: "CourtVision nació como Trabajo de Fin de Grado con un objetivo concreto: resolver la fragmentación que sufre un entrenador de baloncesto amateur al gestionar su equipo. Hojas de cálculo dispersas, chats de grupo para comunicar convocatorias y notas en papel para el seguimiento de jugadores son la realidad de la mayoría. La aplicación centraliza en un único entorno —equipos, jugadores, sesiones de entrenamiento y estadísticas— con acceso en tiempo real desde cualquier dispositivo Android.",
+        images: [],
+      },
+      {
+        title: "El Reto — Gestión sin Fricción",
+        body: "El perfil del usuario es un entrenador no técnico que dedica su tiempo a la cancha, no a herramientas digitales. El reto de diseño era eliminar la curva de aprendizaje: ninguna pantalla puede requerir más de tres acciones para completar una tarea. La arquitectura de información se redujo a tres pilares —Equipos, Jugadores y Entrenamientos— con navegación directa entre ellos y sin jerarquías profundas. Cada decisión de UI se tomó pensando en un contexto de uso real: guantes de frío, pantalla bajo luz solar, atención dividida.",
+        images: [],
+      },
+      {
+        title: "Diseño de la Aplicación",
+        body: "La identidad visual prioriza la legibilidad sobre el estilo. Tipografía de alto contraste, iconografía unívoca y una paleta reducida a dos tonos permiten leer la información de un vistazo. La gestión de jugadores incluye ficha individual con estadísticas de participación, posición y estado; la agenda de entrenamientos permite crear sesiones, asignar ejercicios y registrar la asistencia en tiempo real. Toda la interfaz sigue las guías de Material Design 3 con variaciones de color que refuerzan la identidad del proyecto.",
+        images: [],
+      },
+      {
+        title: "Arquitectura Técnica",
+        body: "La aplicación se construyó con Kotlin siguiendo el patrón de arquitectura MVVM, que separa la lógica de negocio de la capa de presentación y facilita el testing y el mantenimiento. Firebase actúa como backend: Realtime Database para la sincronización de datos entre sesiones y Firebase Authentication para la gestión segura de cuentas de entrenador. El resultado es una app con latencia mínima en operaciones CRUD y sin necesidad de servidor propio, lo que reduce el coste de mantenimiento a cero para el usuario final.",
+        images: [],
+      },
+      {
+        title: "Ficha Técnica",
+        body: "",
+        images: [],
+        ficha: [
+          { label: "Rol",      value: "Diseño UI/UX · Desarrollo Android" },
+          { label: "Año",      value: "2024" },
+          { label: "Estado",   value: "Completado — TFG" },
+          { label: "Stack",    value: "Kotlin · Android Studio · Firebase" },
+          { label: "Patrón",   value: "MVVM" },
+          { label: "Sector",   value: "Deporte amateur — Baloncesto" },
+        ],
+      },
+    ],
     link: "https://github.com/DevRodrigoPdp/courtvision-degree",
     technologies: [
       { name: "Android Studio", icon: androidStudioIcon },

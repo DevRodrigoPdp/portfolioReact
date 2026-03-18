@@ -1,9 +1,23 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { projects } from '../data/data';
+import { CaseStudy } from '../components/CaseStudy';
 
 
 const ease = [0.16, 1, 0.3, 1];
+
+function MetaItem({ label, value }) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+      <span className="text-mono" style={{ fontSize: '0.6rem', color: 'rgba(255,255,240,0.25)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+        {label}
+      </span>
+      <span className="text-mono" style={{ fontSize: '0.72rem', color: 'rgba(255,255,240,0.6)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+        {value}
+      </span>
+    </div>
+  );
+}
 
 export const ProjectPage = () => {
   const { slug } = useParams();
@@ -37,16 +51,8 @@ export const ProjectPage = () => {
 
       {/* ── HERO ── */}
       <section className="fullscreen-section">
-        <div className="relative z-10 text-center px-6">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease }}
-            className="text-mono text-[0.65rem] text-[#fffff0]/40 block mb-6"
-          >
-            {project.subtitle}
-          </motion.span>
-          <div className="overflow-hidden">
+        <div className="hero-title-wrapper">
+<div className="overflow-hidden">
             <motion.h1
               initial={{ y: '100%' }}
               animate={{ y: 0 }}
@@ -63,21 +69,13 @@ export const ProjectPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4, ease }}
-          className="absolute bottom-10 left-0 right-0 px-8 md:px-16"
+          className="project-meta-wrapper"
         >
-          <div className="project-meta justify-center gap-16 border-t border-[#fffff0]/10 pt-6">
-            <div className="meta-item">
-              <span className="meta-label">Stack</span>
-              <span className="meta-value">{project.technologies.map((t) => t.name).join(' · ')}</span>
-            </div>
-            <div className="meta-item">
-              <span className="meta-label">Año</span>
-              <span className="meta-value">{project.year}</span>
-            </div>
-            <div className="meta-item">
-              <span className="meta-label">Estado</span>
-              <span className="meta-value">{project.status}</span>
-            </div>
+          <div className="project-meta-bar">
+            <MetaItem label="Stack" value={project.technologies.map((t) => t.name).join(' · ')} />
+            <MetaItem label="Año"   value={project.year} />
+            <MetaItem label="Estado" value={project.status} />
+            <MetaItem label="Tipo"  value={project.subtitle} />
           </div>
         </motion.div>
       </section>
