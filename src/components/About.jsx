@@ -55,13 +55,13 @@ const infoRows = [
 
 export const About = () => {
   return (
-    <section id="about" className="px-10 md:px-16 py-14 flex flex-col justify-center border-t border-[#fffff0]/20">
+    <section id="about" className="px-5 sm:px-8 md:px-16 py-14 flex flex-col justify-center border-t border-[#fffff0]/20">
       <div className="mb-12">
         <span className="text-[10px] tracking-[0.3em] uppercase block mb-3 text-[#fffff0]/60 font-medium">Sobre mí</span>
         <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tight text-[#fffff0] leading-none drop-shadow-md">Info</h2>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-24">
         <div className="space-y-8">
           <motion.p
             initial={{ opacity: 0, y: 30 }}

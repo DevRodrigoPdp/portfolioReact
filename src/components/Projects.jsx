@@ -36,7 +36,7 @@ const ProjectCard = ({ project, index }) => {
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
       className="group border-t border-[#fffff0]/20 py-10"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-8 lg:gap-16 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] xl:grid-cols-[1fr_340px] gap-8 lg:gap-12 xl:gap-16 items-start">
 
         {/* Left: text content */}
         <div className="flex flex-col gap-5">
@@ -110,7 +110,7 @@ const ProjectCard = ({ project, index }) => {
 
 export const Projects = () => {
   return (
-    <section id="projects" className="px-10 md:px-16 py-14 border-t border-[#fffff0]/20">
+    <section id="projects" className="px-5 sm:px-8 md:px-16 py-14 border-t border-[#fffff0]/20">
       <motion.span
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

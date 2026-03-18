@@ -24,7 +24,7 @@ export const SidebarNav = ({ activeSectionId }) => {
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="fixed top-0 left-0 h-screen z-100 flex flex-col items-start justify-between py-8 border-r overflow-hidden"
+      className="fixed top-0 left-0 h-screen z-100 hidden md:flex flex-col items-start justify-between py-8 border-r overflow-hidden"
       style={{
         borderColor: 'rgba(255,255,240,0.1)',
         background: 'rgba(2,44,34,0.4)',

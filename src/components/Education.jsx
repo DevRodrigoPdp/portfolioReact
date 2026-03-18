@@ -31,7 +31,7 @@ const EduItem = ({ item, index }) => {
       initial={{ opacity: 0, x: fromLeft ? -50 : 50 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 md:gap-12 py-10 border-b border-white/20"
+      className="grid grid-cols-1 md:grid-cols-[140px_1fr] lg:grid-cols-[200px_1fr] gap-6 md:gap-8 lg:gap-12 py-10 border-b border-white/20"
     >
       <div className="space-y-1">
         <p className="text-xs tracking-[0.15em] uppercase text-[#fffff0]/60 font-medium">{item.period}</p>
@@ -56,7 +56,7 @@ export const Education = () => {
   const inView = useInView(ref, { once: true, margin: '-10%' });
 
   return (
-    <section id="formacion" className="px-10 md:px-16 py-14 border-t border-[#fffff0]/20">
+    <section id="formacion" className="px-5 sm:px-8 md:px-16 py-14 border-t border-[#fffff0]/20">
       <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
         className="text-[10px] tracking-[0.3em] uppercase block mb-3 text-[#fffff0]/60 font-medium">
         Formación

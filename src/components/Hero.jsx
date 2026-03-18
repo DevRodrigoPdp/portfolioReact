@@ -11,7 +11,7 @@ export const Hero = () => {
   const opacity = useTransform(scrollYProgress, [0.4, 0.9], [1, 0]);
 
   return (
-    <section id="hero" ref={ref} className="relative flex flex-col justify-center min-h-screen px-10 md:px-16 overflow-hidden">
+    <section id="hero" ref={ref} className="relative flex flex-col justify-center min-h-screen px-5 sm:px-8 md:px-16 overflow-hidden">
       <motion.span
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.04 }}

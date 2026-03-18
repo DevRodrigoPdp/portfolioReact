@@ -31,7 +31,7 @@ const MagLink = ({ href, children }) => {
 
 export const Contact = () => {
   return (
-    <section id="contact" className="px-10 md:px-16 py-16 border-t border-[#fffff0]/20">
+    <section id="contact" className="px-5 sm:px-8 md:px-16 py-16 border-t border-[#fffff0]/20">
       <motion.span
         initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
         className="text-[10px] tracking-[0.3em] uppercase block mb-12 text-[#fffff0]/60 font-medium"

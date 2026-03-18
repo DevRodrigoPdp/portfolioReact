@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { CustomCursor } from './components/CustomCursor';
 import { ParticlesBackground } from './components/ParticlesBackground';
 import { SidebarNav }  from './components/SidebarNav';
+import { MobileNav } from './components/MobileNav';
 import { Hero }        from './components/Hero';
 import { Projects }    from './components/Projects';
 import { Experience }  from './components/Experience';
@@ -55,6 +56,7 @@ function App() {
     >
       <ParticlesBackground />
       <CustomCursor />
+      <MobileNav activeSectionId={activeSection} />
 
       {/* Navegación lateral — landmark nav para lectores de pantalla */}
       <nav aria-label="Navegación de secciones">
