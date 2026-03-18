@@ -514,6 +514,17 @@ body {
 
 /* ── Visibilidad nav desktop / mobile ── */
 .nav-desktop   { display: block; }
+.nav-mobile-header {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 1rem 1.25rem;
+  align-items: center;
+  justify-content: space-between;
+}
 .nav-mobile-btn {
   display: none;
   position: fixed;
@@ -527,8 +538,9 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .nav-desktop    { display: none !important; }
-  .nav-mobile-btn { display: block; }
+  .nav-desktop      { display: none !important; }
+  .nav-mobile-btn   { display: none; }
+  .nav-mobile-header { display: flex; }
 }
 
 /* Mobile menu button - hidden by default */
@@ -676,6 +688,14 @@ body {
   /* About Page */
   .about-canvas-container {
     display: none;
+  }
+
+  .about-section {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+    align-items: flex-start;
+    padding-block: 5rem 3rem;
   }
 
   .about-content {

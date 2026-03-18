@@ -40,7 +40,7 @@ export function AboutPage() {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="fullscreen-section" style={{ background: '#0a0a0a' }}>
+    <section id="about" className="fullscreen-section about-section" style={{ background: '#0a0a0a' }}>
       <LiquidBlob />
 
       <div className="about-content">

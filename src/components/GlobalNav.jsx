@@ -49,14 +49,19 @@ export function GlobalNav({ activeSection, onNavigate }) {
         <span className="text-mono" style={{ color: 'rgba(255,255,255,0.4)' }}>{t('available')}</span>
       </div>
 
-      {/* ── Botón mobile ── */}
-      <button
-        className="nav-mobile-btn text-mono"
-        onClick={() => setOpen(!open)}
-        style={{ color: '#fff', fontWeight: 700, letterSpacing: '0.15em', fontSize: '0.7rem' }}
-      >
-        {open ? 'CLOSE' : 'MENU'}
-      </button>
+      {/* ── Header mobile ── */}
+      <div className="nav-mobile-header">
+        <span className="text-mono" style={{ color: '#fff', fontWeight: 600, letterSpacing: '0.15em', fontSize: '0.7rem' }}>
+          {t('name')}
+        </span>
+        <button
+          className="text-mono"
+          onClick={() => setOpen(!open)}
+          style={{ color: '#fff', fontWeight: 700, letterSpacing: '0.15em', fontSize: '0.7rem', background: 'none', border: 'none', cursor: 'pointer', padding: '0.5rem' }}
+        >
+          {open ? 'CLOSE' : 'MENU'}
+        </button>
+      </div>
 
       {/* ── Overlay mobile ── */}
       <AnimatePresence>
