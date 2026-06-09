@@ -51,9 +51,6 @@ export function GlobalNav({ activeSection, onNavigate }) {
 
       {/* ── Header mobile ── */}
       <div className="nav-mobile-header">
-        <span className="text-mono" style={{ color: '#fff', fontWeight: 600, letterSpacing: '0.15em', fontSize: '0.7rem' }}>
-          {t('name')}
-        </span>
         <button
           className="text-mono"
           onClick={() => setOpen(!open)}
@@ -61,6 +58,9 @@ export function GlobalNav({ activeSection, onNavigate }) {
         >
           {open ? 'CLOSE' : 'MENU'}
         </button>
+        <span className="text-mono" style={{ color: '#fff', fontWeight: 600, letterSpacing: '0.15em', fontSize: '0.7rem' }}>
+          {t('name')}
+        </span>
       </div>
 
       {/* ── Overlay mobile ── */}
