@@ -10,16 +10,22 @@ const translations = {
     available: 'DISPONIBLE PARA FREELANCE',
     
     // Projects metadata labels
-    media: 'MEDIA',
-    typology: 'TYPOLOGY',
-    devStatus: 'DEV STATUS',
-    year: 'YEAR',
+    media: 'STACK',
+    typology: 'TIPO',
+    devStatus: 'ESTADO',
+    year: 'AÑO',
+    viewDemo: 'VER DEMO',
+    viewRepo: 'VER REPOSITORIO',
+    repo: 'REPOSITORIO',
+    newTab: 'se abre en una pestaña nueva',
     
     // Project statuses
     enDesarrollo: 'EN DESARROLLO',
     completado: 'COMPLETADO',
     appAndroid: 'APP ANDROID',
     eCommerce: 'E-COMMERCE',
+    catalogoWeb: 'CATÁLOGO WEB',
+    plataformaWeb: 'PLATAFORMA WEB',
     
     // About section
     aboutText: 'Desarrollador Frontend especializado en interfaces limpias, rápidas y experiencias digitales de alto impacto. Me apasiona transformar diseños en experiencias funcionales y optimizadas.',
@@ -29,7 +35,7 @@ const translations = {
     
     // Experience
     aegon: 'Aegon Seguros',
-    aegonRole: 'Frontend, 2025-Actualmente',
+    aegonRole: 'Frontend, 2026-Actualmente',
     fractalia: 'Fractalia Systems',
     fractaliaRole: 'Soporte y Mantenimiento, 2023',
     
@@ -41,7 +47,18 @@ const translations = {
     
     // Footer
     footerCta: "¿CONSTRUIMOS\nALGO JUNTOS?",
-    hoverHint: 'Pasa el cursor para revelar contacto',
+    viewCv: 'Ver CV',
+    contact: 'CONTACTO',
+    contactLinks: 'Enlaces de contacto',
+    viewProjects: 'VER PROYECTOS',
+    // BORRADOR — pendiente de revisión de Rodrigo
+    introRole: 'Desarrollador Frontend · Madrid',
+    introTagline: 'Desarrollo interfaces con Angular y React. Me apasiona la maquetación creativa y uso la IA a diario para construir más rápido y mejor.',
+    download: 'Descargar',
+    openNewTab: 'Abrir en pestaña nueva',
+    close: 'Cerrar',
+    loadingCv: 'Cargando CV',
+    menu: 'MENÚ',
     
     // Scroll indicator
     scroll: 'SCROLL',
@@ -55,16 +72,22 @@ const translations = {
     available: 'AVAILABLE FOR FREELANCE',
     
     // Projects metadata labels
-    media: 'MEDIA',
-    typology: 'TYPOLOGY',
-    devStatus: 'DEV STATUS',
+    media: 'STACK',
+    typology: 'TYPE',
+    devStatus: 'STATUS',
     year: 'YEAR',
+    viewDemo: 'VIEW DEMO',
+    viewRepo: 'VIEW REPOSITORY',
+    repo: 'REPOSITORY',
+    newTab: 'opens in a new tab',
     
     // Project statuses
     enDesarrollo: 'IN DEVELOPMENT',
     completado: 'COMPLETED',
     appAndroid: 'ANDROID APP',
     eCommerce: 'E-COMMERCE',
+    catalogoWeb: 'WEB CATALOG',
+    plataformaWeb: 'WEB PLATFORM',
     
     // About section
     aboutText: 'Frontend Developer specialized in clean interfaces, fast performance, and high-impact digital experiences. I am passionate about transforming designs into functional and optimized experiences.',
@@ -74,7 +97,7 @@ const translations = {
     
     // Experience
     aegon: 'Aegon Insurance',
-    aegonRole: 'Frontend, 2025-Present',
+    aegonRole: 'Frontend, 2026-Present',
     fractalia: 'Fractalia Systems',
     fractaliaRole: 'Support & Maintenance, 2023',
     
@@ -86,7 +109,18 @@ const translations = {
     
     // Footer
     footerCta: "LET'S CRAFT\nSOMETHING?",
-    hoverHint: 'Hover to reveal contact',
+    viewCv: 'View CV',
+    contact: 'CONTACT',
+    contactLinks: 'Contact links',
+    viewProjects: 'VIEW PROJECTS',
+    // DRAFT — pending Rodrigo's review
+    introRole: 'Frontend Developer · Madrid',
+    introTagline: 'I build interfaces with Angular and React. I love creative layout work and use AI every day to build faster and better.',
+    download: 'Download',
+    openNewTab: 'Open in new tab',
+    close: 'Close',
+    loadingCv: 'Loading CV',
+    menu: 'MENU',
     
     // Scroll indicator
     scroll: 'SCROLL',

@@ -1,12 +1,15 @@
 import { useCursor } from '../hooks/useCursor';
 
 export const Cursor = () => {
-  const { pos, hover } = useCursor();
+  const { ref, enabled, visible, hover } = useCursor();
+
+  if (!enabled) return null;
 
   return (
     <div
-      className={`cursor ${hover ? 'hover' : ''}`}
-      style={{ left: pos.x, top: pos.y }}
+      ref={ref}
+      aria-hidden="true"
+      className={`cursor ${hover ? 'hover' : ''} ${visible ? '' : 'is-hidden'}`}
     />
   );
 };

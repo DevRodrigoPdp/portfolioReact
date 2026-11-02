@@ -1,59 +1,30 @@
-import { useState, useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { CvLink } from './CvPreview';
+import { CONTACT } from '../data/contact';
 
 export function CinematicFooter() {
-  const [isHovered, setIsHovered] = useState(false);
-  const hoverTimeoutRef = useRef(null);
   const { t } = useLanguage();
 
-  const handleMouseEnter = () => {
-    hoverTimeoutRef.current = setTimeout(() => {
-      setIsHovered(true);
-    }, 800); // 800ms delay
-  };
-
-  const handleMouseLeave = () => {
-    if (hoverTimeoutRef.current) {
-      clearTimeout(hoverTimeoutRef.current);
-    }
-    setIsHovered(false);
-  };
-
   return (
-    <footer
-      id="contact"
-      className="cinematic-footer bg-[#0a0a0a]"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      {/* Giant CTA Text */}
-      <div className={`footer-cta ${isHovered ? 'hidden' : ''}`} style={{ whiteSpace: 'pre-line' }}>
+    <footer id="contact" className="cinematic-footer bg-[#0a0a0a]">
+      <h2 className="footer-cta" style={{ whiteSpace: 'pre-line' }}>
         {t('footerCta')}
-      </div>
+      </h2>
 
-      {/* Revealed Content on Hover */}
-      <div className={`footer-reveal ${isHovered ? 'visible' : ''}`}>
-        <a
-          href="mailto:rpuertadelpozo@gmail.com"
-          className="footer-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          rpuertadelpozo@gmail.com
+      {/* Contacto siempre visible (antes solo aparecía tras 0,8 s de hover) */}
+      <div className="footer-links">
+        <a href={`mailto:${CONTACT.email}`} className="footer-link footer-link-primary">
+          {CONTACT.email}
         </a>
-        <a
-          href="https://github.com/DevRodrigoPdp"
-          className="footer-link text-white/70"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          github.com/DevRodrigoPdp
-        </a>
-      </div>
-
-      {/* Hover Hint */}
-      <div className="footer-hint" style={{ opacity: isHovered ? 0 : 1 }}>
-        {t('hoverHint')}
+        <nav aria-label={t('contactLinks')} className="footer-links-row">
+          <a href={CONTACT.linkedin} className="footer-link" target="_blank" rel="noopener noreferrer">
+            LinkedIn ↗
+          </a>
+          <a href={CONTACT.github} className="footer-link" target="_blank" rel="noopener noreferrer">
+            GitHub ↗
+          </a>
+          <CvLink className="footer-link">{t('viewCv')} ↗</CvLink>
+        </nav>
       </div>
     </footer>
   );

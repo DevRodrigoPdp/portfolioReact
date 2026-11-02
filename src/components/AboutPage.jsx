@@ -1,4 +1,4 @@
-import { LiquidBlob } from './LiquidBlob';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import {
   SiReact, SiJavascript, SiTailwindcss, SiNextdotjs,
@@ -16,6 +16,39 @@ const STACK = [
   { icon: SiAndroid,      name: 'Android',    color: '#3DDC84' },
   { icon: SiFirebase,     name: 'Firebase',   color: '#FFCA28' },
 ];
+
+// Three.js (~600 KB) solo se descarga cuando hace falta
+const LiquidBlob = lazy(() => import('./LiquidBlob').then((m) => ({ default: m.LiquidBlob })));
+
+const BLOB_QUERY = '(min-width: 769px) and (prefers-reduced-motion: no-preference)';
+
+/** Monta el efecto WebGL solo en escritorio, sin reduced-motion y cuando la sección se acerca. */
+function useShowBlob(sectionRef) {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia(BLOB_QUERY);
+    let observer;
+
+    const setup = () => {
+      observer?.disconnect();
+      if (!mql.matches) { setShow(false); return; }
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) { setShow(true); observer.disconnect(); }
+        },
+        { rootMargin: '25% 0px' }
+      );
+      if (sectionRef.current) observer.observe(sectionRef.current);
+    };
+
+    setup();
+    mql.addEventListener('change', setup);
+    return () => { observer?.disconnect(); mql.removeEventListener('change', setup); };
+  }, [sectionRef]);
+
+  return show;
+}
 
 function StackItem({ icon: Icon, name, color }) {
   return (
@@ -38,10 +71,16 @@ function StackItem({ icon: Icon, name, color }) {
 
 export function AboutPage() {
   const { t } = useLanguage();
+  const sectionRef = useRef(null);
+  const showBlob = useShowBlob(sectionRef);
 
   return (
-    <section id="about" className="fullscreen-section about-section" style={{ background: '#0a0a0a' }}>
-      <LiquidBlob />
+    <section ref={sectionRef} id="about" className="fullscreen-section about-section" style={{ background: '#0a0a0a' }}>
+      {showBlob && (
+        <Suspense fallback={null}>
+          <LiquidBlob />
+        </Suspense>
+      )}
 
       <div className="about-content">
         {/* Left — bio */}
