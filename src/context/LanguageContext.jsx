@@ -52,8 +52,7 @@ const translations = {
     contactLinks: 'Enlaces de contacto',
     viewProjects: 'VER PROYECTOS',
     // BORRADOR — pendiente de revisión de Rodrigo
-    introRole: 'Desarrollador Frontend · Madrid',
-    introTagline: 'Desarrollo interfaces con Angular y React. Me apasiona la maquetación creativa y uso la IA a diario para construir más rápido y mejor.',
+    introRole: 'Frontend · Angular & React · IA',
     download: 'Descargar',
     openNewTab: 'Abrir en pestaña nueva',
     close: 'Cerrar',
@@ -114,8 +113,7 @@ const translations = {
     contactLinks: 'Contact links',
     viewProjects: 'VIEW PROJECTS',
     // DRAFT — pending Rodrigo's review
-    introRole: 'Frontend Developer · Madrid',
-    introTagline: 'I build interfaces with Angular and React. I love creative layout work and use AI every day to build faster and better.',
+    introRole: 'Frontend · Angular & React · AI',
     download: 'Download',
     openNewTab: 'Open in new tab',
     close: 'Close',

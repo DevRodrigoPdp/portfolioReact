@@ -14,7 +14,7 @@ Una web de una sola página con estética oscura y cinematográfica: tipografía
 
 | Sección | Contenido |
 | --- | --- |
-| **Presentación** | Nombre, rol y una frase sobre lo que hago. Botones para ver proyectos y el CV, y enlaces a LinkedIn, GitHub y email. |
+| **Presentación** | Nombre, rol en una línea y botón para ir a los proyectos. |
 | **Proyectos** | Un proyecto por pantalla con foto de fondo, stack, tipo, estado y año. Al pulsarlo se abre la **demo** (o el **repositorio** si no tiene demo). |
 | **Sobre mí** | Bio, stack con iconos, experiencia y formación. Fondo con un efecto líquido en WebGL que reacciona al ratón. |
 | **Contacto** | Email, LinkedIn, GitHub y CV, siempre visibles. |

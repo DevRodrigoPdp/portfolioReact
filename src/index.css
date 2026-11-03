@@ -1127,6 +1127,18 @@ body {
 
 .intro-name {
   color: #fff;
+  /* Sobre fondo liso la sombra solo emborrona */
+  text-shadow: none;
+  filter: none;
+}
+
+.intro-role {
+  margin-top: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.intro-content > .intro-btn {
+  margin-top: 3rem;
 }
 
 .intro-name-line {
