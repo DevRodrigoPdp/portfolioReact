@@ -1,0 +1,103 @@
+/* ═══ Proyecto ═══ */
+.project .page-body {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto minmax(0, 1fr);
+  column-gap: clamp(1rem, 2.5vw, 2.5rem);
+}
+.project-head { grid-column: 1 / -1; padding-top: clamp(0.5rem, 3vh, 2rem); }
+.project-head .eyebrow { margin-bottom: 0.9rem; }
+
+.photo { grid-column: 1 / 8; grid-row: 2; align-self: center; margin: 2rem 0 0.5rem; }
+.project-info { grid-column: 9 / -1; grid-row: 2; align-self: end; padding-bottom: 1.5rem; }
+
+/* proyectos pares: en espejo */
+.project.is-flip .photo { grid-column: 6 / -1; }
+.project.is-flip .project-info { grid-column: 1 / 5; }
+.project.is-flip .project-head { text-align: right; }
+
+/* Foto montada como en un álbum */
+.photo-frame {
+  position: relative;
+  display: block;
+  padding: 0.65rem;
+  background: var(--paper-pure);
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.08),
+    0 24px 50px -24px rgb(0 0 0 / 0.45);
+}
+.photo-frame img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  max-height: 46vh;
+  max-height: 46dvh;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.05);
+  transition: filter 0.9s var(--ease);
+}
+.photo-frame:hover img, .photo-frame:focus-visible img { filter: grayscale(0); }
+
+/* Esquineros */
+.corner {
+  position: absolute;
+  width: 2.1rem;
+  height: 2.1rem;
+  background: var(--ink);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+.corner-tl { top: -0.35rem; left: -0.35rem; }
+.corner-tr { top: -0.35rem; right: -0.35rem; transform: rotate(90deg); }
+.corner-br { bottom: -0.35rem; right: -0.35rem; transform: rotate(180deg); }
+.corner-bl { bottom: -0.35rem; left: -0.35rem; transform: rotate(270deg); }
+
+/* Ficha técnica */
+.spec { border-top: 1px solid var(--ink); }
+.spec-row {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.85rem;
+}
+.spec dt { color: var(--ink-soft); }
+.spec dd { font-weight: 600; letter-spacing: 0.02em; }
+
+/* Enlaces */
+.project-links { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.75rem; margin-top: 1.75rem; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.4rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.4s var(--ease);
+}
+.btn:hover { background: var(--blue); }
+
+.text-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding-block: 0.3rem;
+  border-bottom: 1px solid currentColor;
+  transition: color 0.3s var(--ease);
+}
+.text-link:hover { color: var(--blue); }
+
+@media (max-width: 1024px) {
+  .project .page-body { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+  .project-head, .photo, .project-info,
+  .project.is-flip .photo, .project.is-flip .project-info { grid-column: 1; grid-row: auto; }
+  .project.is-flip .project-head { text-align: left; }
+  .photo-frame img { max-height: none; }
+}
+
+@media (max-width: 640px) {
+  .spec-row { grid-template-columns: 5.5rem 1fr; }
+}

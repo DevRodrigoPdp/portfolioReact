@@ -1,0 +1,24 @@
+/* ═══ 04 · Lo que hago ═══ */
+.do .display { padding-top: clamp(1.5rem, 6vh, 4rem); }
+.do .body { margin: 2rem 0 0 0.35rem; }
+
+.skills {
+  list-style: none;
+  margin-top: auto;
+  padding-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  justify-content: center;
+  gap: 1.75rem clamp(2rem, 7vw, 7rem);
+  font-size: clamp(1rem, 1.4vw, 1.3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+/* segunda fila desplazada, como en una composición a mano */
+.skills li:nth-child(n + 5) { transform: translateX(45%); }
+
+@media (max-width: 1024px) {
+  .skills { grid-template-columns: repeat(2, max-content); justify-content: start; margin-top: 3rem; }
+  .skills li:nth-child(n + 5) { transform: none; }
+  .skills li:nth-child(even) { transform: translateX(1.5rem); }
+}

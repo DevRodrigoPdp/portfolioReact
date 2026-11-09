@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
+import './CvPreview.css';
 
 export const CV_URL = '/cv-rodrigo-puerta.pdf';
 export const CV_FILENAME = 'CV-Rodrigo-Puerta.pdf';
@@ -58,14 +59,14 @@ function CvPanel({ onClose }) {
   }, [onClose]);
 
   return (
-    <motion.div
+    <m.div
       className="cv-backdrop"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 0.4 } }}
       exit={{ opacity: 0, transition: { duration: 0.35, delay: 0.1 } }}
       onClick={onClose}
     >
-      <motion.aside
+      <m.aside
         role="dialog"
         aria-modal="true"
         aria-labelledby="cv-title"
@@ -77,17 +78,17 @@ function CvPanel({ onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         <header className="cv-toolbar">
-          <motion.h2 variants={itemVariants} id="cv-title" className="text-mono cv-title">
+          <m.h2 variants={itemVariants} id="cv-title" className="text-mono cv-title">
             CV <span aria-hidden="true">—</span> Rodrigo Puerta
-          </motion.h2>
+          </m.h2>
           <div className="cv-actions">
-            <motion.a variants={itemVariants} href={CV_URL} download={CV_FILENAME} className="project-ext-link text-mono">
+            <m.a variants={itemVariants} href={CV_URL} download={CV_FILENAME} className="project-ext-link text-mono">
               {t('download')} ↓
-            </motion.a>
-            <motion.a variants={itemVariants} href={CV_URL} target="_blank" rel="noopener noreferrer" className="project-ext-link text-mono">
+            </m.a>
+            <m.a variants={itemVariants} href={CV_URL} target="_blank" rel="noopener noreferrer" className="project-ext-link text-mono">
               {t('openNewTab')} ↗
-            </motion.a>
-            <motion.button
+            </m.a>
+            <m.button
               variants={itemVariants}
               ref={closeRef}
               type="button"
@@ -96,18 +97,18 @@ function CvPanel({ onClose }) {
               aria-label={t('close')}
             >
               {t('close')} ✕
-            </motion.button>
+            </m.button>
           </div>
         </header>
 
-        <motion.div variants={itemVariants} className="cv-body">
+        <m.div variants={itemVariants} className="cv-body">
           {!loaded && (
             <div className="cv-loader" aria-hidden="true">
               <span className="text-mono">{t('loadingCv')}</span>
               <span className="cv-loader-bar" />
             </div>
           )}
-          <motion.iframe
+          <m.iframe
             src={`${CV_URL}#toolbar=0&navpanes=0&view=FitH`}
             title="CV de Rodrigo Puerta"
             className="cv-frame"
@@ -116,9 +117,9 @@ function CvPanel({ onClose }) {
             animate={loaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.6, ease }}
           />
-        </motion.div>
-      </motion.aside>
-    </motion.div>
+        </m.div>
+      </m.aside>
+    </m.div>
   );
 }
 

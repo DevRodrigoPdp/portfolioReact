@@ -1,0 +1,35 @@
+/* ═══ 03 · Hola ═══ */
+.hello-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-content: center;
+  gap: clamp(2rem, 6vh, 3.5rem) var(--margin);
+}
+.hello-title { grid-column: 1 / -1; font-size: calc(var(--display) * 1.2); }
+.hello-title .line:first-child { font-weight: 900; }
+.hello-title .line:last-child { font-weight: 500; letter-spacing: -0.035em; }
+.hello-grid .lead, .hello-grid .body { max-width: 44ch; }
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding-top: 1.25rem;
+  font-size: 0.9rem;
+}
+.contact-row a { text-decoration: none; }
+.contact-row a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* punto de "disponible" que parpadea */
+.dot {
+  display: inline-block; width: 0.5rem; height: 0.5rem; margin-right: 0.5rem;
+  border-radius: 50%; background: var(--blue);
+  animation: blink 2.4s ease-in-out infinite;
+}
+@keyframes blink { 50% { opacity: 0.25; } }
+
+@media (max-width: 1024px) {
+  .hello-grid { grid-template-columns: minmax(0, 1fr); }
+}

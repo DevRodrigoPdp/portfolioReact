@@ -1,0 +1,36 @@
+/* ═══ Máscaras de las animaciones de entrada (Reveal.jsx) ═══ */
+
+/* <Lines>: la máscara sobresale por los cuatro lados (padding + margen negativo)
+   para no cortar tildes, rabos de g/y/p/q ni la última letra. */
+.line {
+  display: block;
+  overflow: hidden;
+  padding: 0.16em 0.15em 0.24em 0.1em;
+  margin: -0.16em -0.15em -0.24em -0.1em;
+}
+.line-in { display: block; }
+
+/* <FitText>: texto que ocupa exactamente el ancho de su contenedor */
+.fit-text {
+  display: inline-block;
+  /* 100cqi = ancho del contenedor; --fit-ratio = ancho del texto en em */
+  font-size: calc(100cqi / var(--fit-ratio));
+  white-space: nowrap;
+  line-height: 0.78;
+  /* espaciado normal: con un peso tan grueso, cualquier valor negativo hace que las letras se toquen */
+  letter-spacing: 0;
+  padding-right: 0.04em;
+  /* hueco para los rabos (g, p) por debajo de la línea base */
+  padding-bottom: 0.2em;
+}
+
+/* Máscara por letra (portada): sobresale a los lados y abajo; los márgenes
+   negativos anulan el padding y el espaciado entre letras no cambia. */
+.char {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding: 0.1em 0.15em 0.3em;
+  margin: -0.1em -0.15em -0.3em;
+}
+.char-in { display: inline-block; }

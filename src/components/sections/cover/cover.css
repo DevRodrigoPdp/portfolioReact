@@ -1,0 +1,45 @@
+/* ═══ 01 · Portada ═══ */
+.cover .page-body { justify-content: space-between; }
+
+.cover-top {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-top: 0.5rem;
+}
+.cover-top svg { margin-bottom: 1.25rem; }
+.cover-title {
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.cover-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  margin-bottom: clamp(0.75rem, 2vh, 1.5rem);
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+}
+
+.slash-list { display: flex; flex-wrap: wrap; }
+.slash-list span + span::before { content: '/'; margin: 0 1rem; opacity: 0.45; }
+
+.inline-contact { display: flex; flex-wrap: wrap; gap: 0.5rem 2.5rem; }
+.inline-contact a { text-decoration: none; }
+.inline-contact a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* contenedor de FitText: el nombre se escala con su ancho (unidades cqi) */
+.cover-word { display: block; width: 100%; font-weight: 800; container-type: inline-size; }
+
+@media (max-width: 1024px) {
+  .cover .page-body { gap: 3rem; }
+}
+
+@media (max-width: 640px) {
+  .cover-meta { flex-direction: column; }
+  .slash-list span + span::before { margin: 0 0.6rem; }
+}

@@ -1,0 +1,73 @@
+/* ═══ 07 · Trabajos (azul) ═══ */
+.works .page-body {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.5fr);
+  gap: var(--margin);
+}
+
+/* En la página azul el pie central choca con las tiras */
+.works .page-foot-mid { display: none; }
+
+.works-intro { display: flex; flex-direction: column; gap: 1.25rem; padding-top: clamp(1rem, 4vh, 3rem); }
+.works-count { font-size: clamp(6rem, min(16vw, 30vh), 16rem); font-weight: 800; line-height: 0.8; letter-spacing: -0.03em; }
+.works-intro hr { border: 0; border-top: 1px solid currentColor; opacity: 0.6; margin-top: auto; }
+.works-row { display: flex; justify-content: space-between; font-size: 1rem; }
+.works-intro .body { max-width: 36ch; padding-bottom: 1rem; }
+
+/* Columnas de proyectos, todas iguales */
+.strips {
+  list-style: none;
+  display: flex;
+  overflow: hidden;
+  /* sangra hasta los bordes de la hoja */
+  margin: calc(var(--head-h) * -1) calc(var(--margin) * -1) -4.25rem 0;
+}
+.strips li {
+  flex: 1 1 0;
+  min-width: 0;
+  border-left: 1px solid rgb(243 242 238 / 0.55);
+}
+
+.strip {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(var(--head-h) + 0.25rem) 1rem 1rem;
+  text-align: left;
+  overflow: hidden;
+  isolation: isolate;
+}
+.strip-name {
+  font-size: clamp(1rem, 1.45vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+/* la foto del proyecto aparece al pasar el ratón */
+.strip-img {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.1);
+  mix-blend-mode: multiply;
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 0.6s var(--ease), transform 1.2s var(--ease);
+}
+.strip:hover .strip-img, .strip:focus-visible .strip-img { opacity: 0.9; transform: scale(1); }
+
+/* Tablet y móvil: las columnas pasan a ser filas con flecha */
+@media (max-width: 1024px) {
+  .works .page-body { grid-template-columns: minmax(0, 1fr); }
+
+  .strips { flex-direction: column; margin: 1rem calc(var(--margin) * -1) 0; }
+  .strips li { border-left: 0; border-top: 1px solid rgb(243 242 238 / 0.55); }
+  .strip { flex-direction: row; align-items: center; padding: 1.4rem var(--margin); min-height: 5.5rem; }
+  .strip::after { content: '→'; font-size: 1.25rem; }
+}

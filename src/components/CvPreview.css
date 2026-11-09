@@ -1,0 +1,58 @@
+/* ═══ Vista previa del CV (panel lateral) ═══ */
+.project-ext-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  padding-block: 0.3rem;
+  border-bottom: 1px solid currentColor;
+  transition: color 0.3s var(--ease);
+}
+.project-ext-link:hover, .project-ext-link:focus-visible { color: var(--blue); }
+
+.cv-backdrop {
+  position: fixed; inset: 0; z-index: 9000;
+  display: flex; justify-content: flex-end;
+  background: rgb(21 21 21 / 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: zoom-out;
+}
+.cv-panel {
+  position: relative;
+  width: min(760px, 100vw);
+  height: 100%;
+  display: flex; flex-direction: column;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: -40px 0 80px rgb(0 0 0 / 0.3);
+  cursor: default;
+  will-change: transform;
+}
+.cv-toolbar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+.cv-title { font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; }
+.cv-actions { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+.cv-close { border-top: 0; border-left: 0; border-right: 0; }
+.cv-body { position: relative; flex: 1; min-height: 0; padding: 1.5rem 2rem 2rem; }
+.cv-frame {
+  display: block; width: 100%; height: 100%; border: 0;
+  background: #fff;
+  box-shadow: 0 20px 50px -20px rgb(0 0 0 / 0.35);
+}
+.cv-loader {
+  position: absolute; inset: 1.5rem 2rem 2rem;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+  font-size: 0.85rem; color: var(--ink-soft);
+}
+.cv-loader-bar { position: relative; width: 120px; height: 1px; overflow: hidden; background: var(--rule); }
+.cv-loader-bar::after {
+  content: ''; position: absolute; inset: 0; width: 40%;
+  background: var(--blue);
+  animation: cv-loading 1.1s cubic-bezier(0.83, 0, 0.17, 1) infinite;
+}
+@keyframes cv-loading { from { transform: translateX(-100%); } to { transform: translateX(250%); } }

@@ -1,0 +1,76 @@
+/* ═══ Hojas del álbum (Album.jsx + Page.jsx) ═══ */
+.album { overflow-x: clip; }
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: var(--head-h) var(--margin) 4.25rem;
+  background: var(--paper);
+  color: var(--ink);
+  outline: none;
+}
+
+/* Escritorio: cada hoja se queda fija y la siguiente se desliza por encima */
+.album.is-stacked .page {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  transform-origin: 0% 0%;
+}
+
+/* Pausa entre hojas: tramo de scroll en el que la hoja actual se queda quieta
+   antes de que empiece a entrar la siguiente. Debe coincidir con DWELL en Album.jsx. */
+.page-dwell { height: 70vh; height: 70dvh; pointer-events: none; }
+
+/* Tonos de hoja */
+.page--blue { background: var(--blue); color: var(--on-blue); }
+.page--ink  { background: var(--ink);  color: var(--paper); }
+.page--blue .eyebrow, .page--ink .eyebrow { color: inherit; opacity: 0.7; }
+
+.page-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Pie de página tipo imprenta */
+.page-foot {
+  position: absolute;
+  left: var(--margin);
+  right: var(--margin);
+  bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.8rem;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.75;
+}
+
+/* Bloque a dos columnas compartido: título a la izquierda, contenido a la derecha */
+.split {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 3rem var(--margin);
+  align-items: start;
+  padding-top: clamp(1.5rem, 6vh, 4rem);
+}
+
+/* Tablet y móvil: hojas normales, una columna */
+@media (max-width: 1024px) {
+  .page { padding-bottom: 4.5rem; gap: 2rem; }
+  .page + .page { border-top: 1px solid var(--rule); }
+  .split { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .page-foot-mid { display: none; }
+}
