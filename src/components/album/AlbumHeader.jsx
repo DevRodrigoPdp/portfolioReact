@@ -8,9 +8,9 @@ import './album-header.css';
 
 /**
  * Cabecera fija tipo "running head" de imprenta.
- * mix-blend-mode: difference → se lee igual sobre papel, sobre la página azul y sobre la tinta.
- * En móvil las acciones se recogen en un menú a pantalla completa (fuera de la cabecera,
- * para que no herede el mix-blend-mode).
+ * Fondo opaco con el color de la página actual (papel, azul o tinta) para que el contenido
+ * no se superponga al hacer scroll.
+ * En móvil las acciones se recogen en un menú a pantalla completa.
  */
 export function AlbumHeader({ current }) {
   const { t, language, toggleLanguage } = useLanguage();
@@ -34,7 +34,7 @@ export function AlbumHeader({ current }) {
 
   return (
     <>
-      <header className="album-header">
+      <header className={`album-header album-header--${page.tone ?? 'paper'}`}>
         <button type="button" className="ah-name" onClick={() => goTo(0)}>
           Rodrigo Puerta
         </button>

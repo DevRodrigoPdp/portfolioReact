@@ -21,6 +21,7 @@ const DWELL = 0.7;
 /**
  * Orden del álbum. Cada proyecto publicado ocupa su propia página.
  *  inContents → aparece en la página "Contenido" (solo lo importante)
+ *  tone       → color de la hoja: paper (por defecto), blue o ink. La cabecera lo copia.
  */
 const PAGES = [
   { id: 'cover', labelKey: 'pCover', Component: CoverPage },
@@ -29,9 +30,9 @@ const PAGES = [
   { id: 'do', labelKey: 'pDo', Component: WhatIDoPage },
   { id: 'stack', labelKey: 'pStack', Component: ToolsPage },
   { id: 'work', labelKey: 'pWork', Component: CareerPage, inContents: true },
-  { id: 'works', labelKey: 'pWorks', Component: WorksPage },
+  { id: 'works', labelKey: 'pWorks', Component: WorksPage, tone: 'blue' },
   ...projects.map((p) => ({ id: p.slug, label: p.title, project: p, Component: ProjectPage, inContents: true })),
-  { id: 'contact', labelKey: 'pContact', Component: ContactPage, inContents: true },
+  { id: 'contact', labelKey: 'pContact', Component: ContactPage, inContents: true, tone: 'ink' },
 ];
 
 export function Album() {

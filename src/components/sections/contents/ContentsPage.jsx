@@ -1,7 +1,7 @@
 import { useLanguage } from '../../../context/LanguageContext';
 import { Page } from '../../album/Page';
 import { Lines, Fade } from '../../album/Reveal';
-import { useAlbum } from '../../album/albumContext';
+import { useAlbum, groupContents } from '../../album/albumContext';
 import './contents.css';
 
 /**
@@ -13,11 +13,7 @@ export function ContentsPage(props) {
   const { t } = useLanguage();
   const { pages, goTo } = useAlbum();
 
-  // Conservamos el índice real de cada página (goTo lo necesita)
-  const entries = pages.map((p, i) => ({ ...p, index: i })).filter((p) => p.inContents);
-  const projects = entries.filter((p) => p.project);
-  const before = entries.filter((p) => !p.project && p.index < (projects[0]?.index ?? Infinity));
-  const after = entries.filter((p) => !p.project && !before.includes(p));
+  const { before, projects, after } = groupContents(pages);
 
   let n = 0; // para escalonar la animación de entrada
   const row = (p, kind) => (

@@ -9,7 +9,8 @@ import { useAlbum, pad } from './albumContext';
  * "asienta" (pasa de girada a recta) mientras entra, como al ir pasando páginas.
  * En móvil son bloques normales que crecen con su contenido.
  */
-export function Page({ index, page, tone = 'paper', className = '', children }) {
+export function Page({ index, page, className = '', children }) {
+  const tone = page.tone ?? 'paper';
   const { t } = useLanguage();
   const { register, total, stacked, reduce } = useAlbum();
   const ref = useRef(null);

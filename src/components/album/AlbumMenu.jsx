@@ -3,7 +3,7 @@ import { m } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
 import { CONTACT } from '../../data/contact';
 import { CvLink } from '../CvPreview';
-import { useAlbum, pad } from './albumContext';
+import { useAlbum, groupContents } from './albumContext';
 import { ease } from './Reveal';
 
 const sheet = {
@@ -23,7 +23,22 @@ const row = {
 export function AlbumMenu({ current, langButton, onClose, onNavigate }) {
   const { t } = useLanguage();
   const { pages } = useAlbum();
+  const { before, projects, after } = groupContents(pages);
   const closeRef = useRef(null);
+
+  const item = (p) => (
+    <m.li key={p.id} variants={row}>
+      <button
+        type="button"
+        className="am-row"
+        aria-current={p.index === current ? 'page' : undefined}
+        onClick={() => onNavigate(p.index)}
+      >
+        <span className="am-label">{p.label ?? t(p.labelKey)}</span>
+        {p.project && <span className="am-kind">{t(p.project.typeKey)}</span>}
+      </button>
+    </m.li>
+  );
 
   useEffect(() => {
     const previous = document.activeElement;
@@ -55,20 +70,20 @@ export function AlbumMenu({ current, langButton, onClose, onNavigate }) {
         <button ref={closeRef} type="button" onClick={onClose}>{t('close')}</button>
       </div>
 
+      {/* Misma organización que la página "Contenido" */}
       <ol className="am-list">
-        {pages.map((p, i) => (
-          <m.li key={p.id} variants={row}>
-            <button
-              type="button"
-              className="am-row"
-              aria-current={i === current ? 'page' : undefined}
-              onClick={() => onNavigate(i)}
-            >
-              <span className="am-num">{pad(i + 1)}</span>
-              <span className="am-label">{p.label ?? t(p.labelKey)}</span>
-            </button>
+        {before.map(item)}
+
+        {projects.length > 0 && (
+          <m.li className="am-group" variants={row}>
+            <p className="am-group-title">
+              {t('projectsTitle')} <span>({projects.length})</span>
+            </p>
+            <ol>{projects.map(item)}</ol>
           </m.li>
-        ))}
+        )}
+
+        {after.map(item)}
       </ol>
 
       <m.div className="am-foot" variants={row}>

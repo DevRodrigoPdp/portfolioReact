@@ -13,7 +13,7 @@ export function WorksPage(props) {
   const years = projects.map((p) => Number(p.year));
 
   return (
-    <Page {...props} tone="blue" className="works">
+    <Page {...props} className="works">
       <div className="works-intro">
         <p className="lead">{t('worksTitle')}</p>
         <Lines lines={[pad(projects.length)]} className="works-count" />

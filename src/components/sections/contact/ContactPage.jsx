@@ -10,7 +10,7 @@ export function ContactPage(props) {
   const { t } = useLanguage();
 
   return (
-    <Page {...props} tone="ink" className="contact">
+    <Page {...props} className="contact">
       <Lines lines={[t('contactTitle1'), t('contactTitle2')]} className="display contact-title" />
 
       <Fade className="contact-main" delay={0.3}>
