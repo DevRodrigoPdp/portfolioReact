@@ -15,20 +15,23 @@ import {
 const STACK_QUERY = '(min-width: 1025px) and (min-height: 680px)';
 const REDUCE_QUERY = '(prefers-reduced-motion: reduce)';
 
-/** Pausa tras cada hoja, en altos de pantalla (= .page-dwell en index.css). */
+/** Pausa tras cada hoja, en altos de pantalla (= .page-dwell en album.css). */
 const DWELL = 0.7;
 
-/** Orden del álbum. Cada proyecto publicado ocupa su propia página. */
+/**
+ * Orden del álbum. Cada proyecto publicado ocupa su propia página.
+ *  inContents → aparece en la página "Contenido" (solo lo importante)
+ */
 const PAGES = [
   { id: 'cover', labelKey: 'pCover', Component: CoverPage },
   { id: 'index', labelKey: 'pIndex', Component: ContentsPage },
   { id: 'hello', labelKey: 'pHello', Component: HelloPage },
   { id: 'do', labelKey: 'pDo', Component: WhatIDoPage },
   { id: 'stack', labelKey: 'pStack', Component: ToolsPage },
-  { id: 'work', labelKey: 'pWork', Component: CareerPage },
+  { id: 'work', labelKey: 'pWork', Component: CareerPage, inContents: true },
   { id: 'works', labelKey: 'pWorks', Component: WorksPage },
-  ...projects.map((p) => ({ id: p.slug, label: p.title, project: p, Component: ProjectPage })),
-  { id: 'contact', labelKey: 'pContact', Component: ContactPage },
+  ...projects.map((p) => ({ id: p.slug, label: p.title, project: p, Component: ProjectPage, inContents: true })),
+  { id: 'contact', labelKey: 'pContact', Component: ContactPage, inContents: true },
 ];
 
 export function Album() {
